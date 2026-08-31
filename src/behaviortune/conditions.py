@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import Literal, Protocol
+from typing import Literal
 
 from .schema import Scenario, Turn
 
@@ -46,13 +46,6 @@ class AdapterLoadRequest:
     adapter_label: str = "BehaviorTune QLoRA adapter"
     adapter_path: str | None = None
     required: bool = True
-
-
-class AdapterLoader(Protocol):
-    """Runtime boundary for a later real QLoRA adapter loader."""
-
-    def load_adapter(self, request: AdapterLoadRequest) -> object:
-        """Load the requested adapter into the pinned base model."""
 
 
 @dataclass(frozen=True)

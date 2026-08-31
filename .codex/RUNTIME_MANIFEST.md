@@ -5,9 +5,10 @@ here.
 
 | Required global skill | Resolution path |
 | --- | --- |
+| `trajectory-resource-router` | `C:\\Users\\chuwi\\.codex\\skills\\trajectory-resource-router\\SKILL.md` |
 | `trajectory-prompt-compiler` | `C:\\Users\\chuwi\\.codex\\skills\\trajectory-prompt-compiler\\SKILL.md` |
 | `bounded-executor` | `C:\\Users\\chuwi\\.codex\\skills\\bounded-executor\\SKILL.md` |
 | `transition-commit-gate` | `C:\\Users\\chuwi\\.codex\\skills\\transition-commit-gate\\SKILL.md` |
 
-G3-A resolved these paths before implementation. This project-local manifest is
-a pointer and boundary record, not a runtime implementation.
+G3-A/G3-B resolved these paths before implementation. This project-local
+manifest is a pointer and boundary record, not a runtime implementation.
