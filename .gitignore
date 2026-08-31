@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Scientific outputs and weights are intentionally not versioned by G3-A.
+artifacts/qlora_primary/
+artifacts/qlora_retry/
+results/raw/
+results/scored/
