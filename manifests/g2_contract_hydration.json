@@ -1,0 +1,36 @@
+{
+  "artifact": "BehaviorTune G2 local contract hydration",
+  "status": "PASS",
+  "source": {
+    "title": "07 — BehaviorTune V1",
+    "url": "https://app.notion.com/p/3c0d086d0fe98157851eddec745382af",
+    "page_id": "3c0d086d-0fe9-8157-851e-ddec745382af",
+    "fetched_on": "2026-09-01"
+  },
+  "contract_file": {
+    "path": "data/G2_FROZEN_DATASET_CONTRACT.md",
+    "sha256": "f32ee1aca121fab4ccd148fd0d5c3998f41fc5ff1e5e255197fe0e90c8735256"
+  },
+  "frozen_generation_contract": {
+    "seed": 147,
+    "scenario_count": 544,
+    "pair_count": 272,
+    "splits": {
+      "train": 240,
+      "dev": 48,
+      "eval_core": 64,
+      "holdout_principal": 64,
+      "holdout_family": 64,
+      "holdout_joint": 64
+    },
+    "validator_count": 16
+  },
+  "scope": {
+    "dataset_generated": false,
+    "model_run": false,
+    "model_download": false,
+    "training": false,
+    "adapter_created": false,
+    "scientific_results_written": false
+  }
+}

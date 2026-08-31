@@ -1,0 +1,32 @@
+{
+  "artifact": "BehaviorTune G2-SOURCE frozen template banks and slot dictionaries",
+  "source_version": "G2-SOURCE-1",
+  "status": "PASS",
+  "contract": {
+    "path": "data/G2_FROZEN_DATASET_CONTRACT.md",
+    "sha256": "f32ee1aca121fab4ccd148fd0d5c3998f41fc5ff1e5e255197fe0e90c8735256"
+  },
+  "source_files": {
+    "data/source/g2_template_banks.json": "8ff36499f7669b0e053201a30b77663ee54f91be7f2010bf9f38fb1ba4c18cce",
+    "data/source/g2_slot_dictionaries.json": "d158abebb9bf7ce7dbc9ca7a6fa26f973d5f628491c08e696894097e43231a4b"
+  },
+  "frozen_inputs": {
+    "abstract_roles": ["D", "C"],
+    "family_count": 6,
+    "case_types": ["activation", "specificity_c_favored", "specificity_d_favored"],
+    "context_profiles": 2,
+    "context_exchanges_per_profile": 6,
+    "abstract_case_markers": 272,
+    "activation_probe_markers": 160,
+    "seed": 147
+  },
+  "scope": {
+    "scenario_dataset_generated": false,
+    "principal_ids_assigned": false,
+    "target_choices_materialized": false,
+    "model_execution": false,
+    "training": false,
+    "adapter_created": false
+  },
+  "generator_boundary": "A later materialization transition may select only these frozen entries using the frozen schedule and seed; it may not add or synthesize source text."
+}
