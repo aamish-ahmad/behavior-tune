@@ -1,8 +1,12 @@
 {
   "project": "BehaviorTune",
-  "state_version": 2,
+  "state_version": 3,
   "canonical_state_source": "Notion: 07 — BehaviorTune V1",
-  "human_interface": ["START", "DONE", "BLOCKED"],
+  "human_interface": [
+    "START",
+    "DONE",
+    "BLOCKED"
+  ],
   "status": "READY",
   "current_transition": {
     "id": "V1.1-BENCHMARK-REPAIR-DESIGN",
@@ -17,7 +21,9 @@
     "forbidden": [
       "BASE/SYSTEM model run",
       "QLoRA training",
-      "external publication",
+      "external publication or license selection",
+      "holdout read",
+      "CV rewrite",
       "mutation/deletion of V1 artifacts"
     ]
   },
@@ -42,7 +48,10 @@
     "BLOCKED": "Force remote reconciliation and stop. Report a blocker only if the reconciled remote state is actually blocked."
   },
   "writeback_required": {
-    "targets": ["Notion", "GitHub"],
+    "targets": [
+      "Notion",
+      "GitHub"
+    ],
     "fields": [
       "transition",
       "status",
@@ -53,5 +62,9 @@
       "next_authority"
     ]
   },
-  "next_authority": "controller"
+  "next_authority": "controller",
+  "authoritative_override": {
+    "notion_block": "CONTROL PLANE — CURRENT AUTHORITATIVE STATE",
+    "rule": "This current-state block supersedes all historical execution-status entries below it."
+  }
 }
