@@ -66,5 +66,13 @@
   "authoritative_override": {
     "notion_block": "CONTROL PLANE — CURRENT AUTHORITATIVE STATE",
     "rule": "This current-state block supersedes all historical execution-status entries below it."
+  },
+  "execution_mode": {
+    "mode": "COMPACT_MANUAL_HANDOFF_TEMP",
+    "reason": "START/DONE/BLOCKED local automation is deferred because stale local state is wasting execution time.",
+    "controller_action": "Provide one short explicit transition prompt.",
+    "executor_action": "Execute only that transition and write PASS/BLOCKED + evidence + exact stop state to Notion and GitHub when available.",
+    "user_return": "DONE",
+    "deferred_repair": "dual-state local automation"
   }
 }
