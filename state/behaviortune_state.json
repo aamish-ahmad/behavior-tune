@@ -1,0 +1,38 @@
+{
+  "project": "BehaviorTune",
+  "state_version": 1,
+  "canonical_state_source": "Notion: 07 — BehaviorTune V1",
+  "human_interface": ["START", "DONE", "BLOCKED"],
+  "status": "READY",
+  "current_transition": {
+    "id": "V1.1-BENCHMARK-REPAIR-DESIGN",
+    "name": "V1.1 benchmark repair DESIGN + deterministic validation only",
+    "authorized_scope": [
+      "Materialize separately versioned opaque-marker benchmark contract/generator changes",
+      "Preserve counterfactual principal and position balance",
+      "Preserve activation and bidirectional specificity",
+      "Preserve split isolation, deterministic labels, and validator coverage",
+      "Produce benchmark-diff manifest explaining removal of V1 ceiling mechanism"
+    ],
+    "forbidden": [
+      "BASE/SYSTEM model run",
+      "QLoRA training",
+      "external publication",
+      "mutation/deletion of V1 artifacts"
+    ]
+  },
+  "writeback_required": {
+    "targets": ["Notion", "GitHub"],
+    "fields": [
+      "transition",
+      "status",
+      "evidence",
+      "hashes_or_commit_shas",
+      "exact_stop_state",
+      "forbidden_work_absent",
+      "next_authority"
+    ]
+  },
+  "divergence_rule": "If Notion and GitHub state disagree, STOP with BLOCKED_STATE_DIVERGENCE.",
+  "next_authority": "controller"
+}
