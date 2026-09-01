@@ -3,14 +3,24 @@ from __future__ import annotations
 import sys
 import tempfile
 import unittest
+import json
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from behaviortune.conditions import AdapterLoadRequest, Message  # noqa: E402
+from behaviortune.conditions import Condition, render_condition  # noqa: E402
 from behaviortune.inference import HuggingFaceDependencies, HuggingFaceModelLoader, load_huggingface_runtime_config  # noqa: E402
 from behaviortune.runtime import ModelLoadRequest, PINNED_BASE_MODEL_ID, PINNED_BASE_MODEL_REVISION  # noqa: E402
-from behaviortune.train import QLoRATrainingDependencies, build_qlora_trainer, resolve_qlora_training_plan, run_qlora_training  # noqa: E402
+from behaviortune.train import (  # noqa: E402
+    QLoRATrainingDependencies,
+    _completion_response_template_token_ids,
+    _scenario_from_canonical_row,
+    build_qlora_trainer,
+    derive_qlora_prompt_completion,
+    resolve_qlora_training_plan,
+    run_qlora_training,
+)
 
 
 class FakeTorch:
@@ -31,6 +41,9 @@ class FakeTokenizer:
 
     def apply_chat_template(self, messages: list[dict[str, str]], **kwargs: object) -> dict[str, object]:
         self.chat_messages, self.chat_kwargs = messages, kwargs
+        if kwargs.get("tokenize") and not kwargs.get("return_dict"):
+            prefix = [11, 12]
+            return prefix + ([13] if kwargs.get("add_generation_prompt") else [])
         return {"input_ids": [[10, 11]]}
 
     def decode(self, _tokens: list[int], **_kwargs: object) -> str:
@@ -135,10 +148,24 @@ class FakeTrainer:
         raise AssertionError("mock readiness never writes an adapter")
 
 
+class FakeCompletionOnlyCollator:
+    def __init__(self, **kwargs: object) -> None:
+        self.kwargs = kwargs
+
+
+class FakeDataset(list[dict[str, object]]):
+    def map(self, function: object) -> "FakeDataset":
+        return FakeDataset([{**row, **function(row)} for row in self])  # type: ignore[operator]
+
+
+def canonical_train_row() -> dict[str, object]:
+    return json.loads((Path(__file__).resolve().parents[1] / "data" / "train.jsonl").read_text(encoding="utf-8").splitlines()[0])
+
+
 def fake_training_dependencies() -> QLoRATrainingDependencies:
     return QLoRATrainingDependencies(
         fake_hf(), FakeLoraConfig, lambda model, _config: model, lambda model: model,
-        FakeSFTConfig, FakeTrainer, lambda *_args, **_kwargs: [object()] * 240,
+        FakeSFTConfig, FakeTrainer, FakeCompletionOnlyCollator, lambda *_args, **_kwargs: FakeDataset([canonical_train_row()] * 240),
     )
 
 
@@ -160,6 +187,22 @@ class QLoRATrainingReadinessTests(unittest.TestCase):
         self.assertEqual(trainer.kwargs["args"].kwargs["num_train_epochs"], 3)
         self.assertEqual(trainer.kwargs["args"].kwargs["max_length"], 4096)
         self.assertEqual(trainer.kwargs["args"].kwargs["seed"], 147)
+        self.assertEqual(trainer.kwargs["data_collator"].kwargs["response_template"], [13])
+        prepared = trainer.kwargs["train_dataset"]
+        self.assertEqual(len(prepared), 240)
+        self.assertEqual(prepared[0]["completion"], [{"role": "assistant", "content": "CHOICE: K7"}])
+
+    def test_canonical_row_derives_neutral_qlora_prompt_and_exact_completion(self) -> None:
+        row = canonical_train_row()
+        scenario = _scenario_from_canonical_row(row)
+        rendered = render_condition(scenario, Condition.QLORA)
+        derived = derive_qlora_prompt_completion(row)
+        self.assertEqual(derived["prompt"], [{"role": message.role, "content": message.content} for message in rendered.messages])
+        self.assertEqual(derived["completion"], [{"role": "assistant", "content": f"CHOICE: {scenario.target_choice}"}])
+        self.assertEqual(derived["prompt"][-1]["content"], rendered.final_decision_block)
+
+    def test_completion_only_header_is_taken_from_tokenizer_generation_boundary(self) -> None:
+        self.assertEqual(_completion_response_template_token_ids(FakeTokenizer()), [13])
 
     def test_training_execution_is_fail_closed_before_dependency_loading(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "disabled"):
