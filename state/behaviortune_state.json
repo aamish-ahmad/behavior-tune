@@ -1,6 +1,6 @@
 {
   "project": "BehaviorTune",
-  "state_version": 1,
+  "state_version": 2,
   "canonical_state_source": "Notion: 07 — BehaviorTune V1",
   "human_interface": ["START", "DONE", "BLOCKED"],
   "status": "READY",
@@ -21,6 +21,26 @@
       "mutation/deletion of V1 artifacts"
     ]
   },
+  "superseded_or_suspended": [
+    {
+      "state": "G8 publication preparation / BLOCKED_LICENSE_SELECTION",
+      "disposition": "SUSPENDED_STALE",
+      "reason": "Controller recalibrated after trajectory review; V1.1 benchmark-validity repair is now the active transition.",
+      "must_not_block_current_transition": true
+    }
+  ],
+  "reconciliation_policy": {
+    "remote_first": true,
+    "local_cache_authoritative": false,
+    "every_token_reconciles": true,
+    "stale_local_state_action": "DISCARD_AFTER_REMOTE_MATCH",
+    "divergence_action": "BLOCKED_STATE_DIVERGENCE"
+  },
+  "token_semantics": {
+    "START": "Reconcile remote state, then execute only current authorized transition.",
+    "DONE": "Reconcile remote state and report only; do not execute.",
+    "BLOCKED": "Force remote reconciliation and stop. Report a blocker only if the reconciled remote state is actually blocked."
+  },
   "writeback_required": {
     "targets": ["Notion", "GitHub"],
     "fields": [
@@ -33,6 +53,5 @@
       "next_authority"
     ]
   },
-  "divergence_rule": "If Notion and GitHub state disagree, STOP with BLOCKED_STATE_DIVERGENCE.",
   "next_authority": "controller"
 }
