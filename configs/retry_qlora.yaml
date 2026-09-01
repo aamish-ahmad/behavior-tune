@@ -1,0 +1,8 @@
+{
+  "recipe_id": "behaviortune-v1-qlora-retry-r1",
+  "recipe_version": "1",
+  "inherits_recipe_id": "behaviortune-v1-qlora-primary-r1",
+  "trigger": "only_if_primary_completed_adapter_fails_a_frozen_qlora_core_acceptance_gate",
+  "allowed_overrides": {"epochs": 5, "learning_rate": 0.0001, "lora_dropout": 0.1},
+  "invariants": {"same_model": true, "same_frozen_train_data": true, "same_seed": 147, "same_target_modules": true, "same_quantization": true, "same_batch_geometry": true, "same_loss": true, "maximum_scientific_retries": 1, "third_scientific_run_permitted": false, "holdouts_may_trigger_or_alter_training": false}
+}

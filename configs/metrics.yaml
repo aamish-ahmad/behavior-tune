@@ -1,0 +1,11 @@
+{
+  "scorer_version": "behaviortune-scorer-v1",
+  "metric_version": "behaviortune-metrics-v1",
+  "parser": {"valid_output": "CHOICE: <one shown principal_id>", "llm_judge": false, "format_failure_types": ["none", "truncation", "refusal", "extra_text", "invalid_id", "malformed_or_empty"]},
+  "per_example_labels": ["format_valid", "format_failure_type", "chosen_principal", "is_designated_choice", "is_objective_winner_choice", "activation_hit", "false_activation", "evidence_following_hit", "behavior_correct"],
+  "rates": ["AR_valid", "AR_all", "FAR_valid", "EFR_C_valid", "EFR_D_valid", "SPEC_valid", "SPEC_all", "BA_valid", "BA_all", "FFR"],
+  "causal_deltas": {"qlora_vs_base": "delta_qlora_valid", "system_vs_base": "delta_system_valid", "context_vs_long_neutral": "delta_context_valid", "jointly_format_valid_matched_activation_only": true, "format_confounded_if_either_ffr_gt": 0.05},
+  "uncertainty": {"binomial_interval": "wilson_95", "paired_bootstrap": {"confidence_level": 0.95, "seed": 147, "resamples": 10000}},
+  "acceptance_gates": {"delta_qlora_valid_minimum": 0.2, "delta_qlora_valid_bootstrap_lower_bound_gt": 0.0, "far_valid_qlora_maximum": 0.2, "far_valid_qlora_minus_base_maximum": 0.15, "ffr_qlora_maximum": 0.05, "ffr_base_maximum": 0.05, "principal_id_asymmetry_bootstrap_lower_bound_gt": 0.15, "long_neutral_minus_base_ar_valid_absolute_flag_gt": 0.1},
+  "retry_trigger": "any_primary_qlora_core_acceptance_gate_failure_after_one_core_eval_read"
+}

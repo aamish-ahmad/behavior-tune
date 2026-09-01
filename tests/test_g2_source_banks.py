@@ -94,12 +94,11 @@ class FrozenG2SourceBankTests(unittest.TestCase):
             self.assertIsNone(banned.search(context_text))
             self.assertIsNone(banned.search(neutral_text))
 
-    def test_source_banks_preserve_the_abstract_pre_dataset_boundary(self) -> None:
+    def test_source_banks_remain_abstract_after_later_dataset_materialization(self) -> None:
         serialized = json.dumps({"templates": self.templates, "slots": self.slots})
         for forbidden in ("K7", "M4", "R2", "T9", "CHOICE:"):
             with self.subTest(forbidden=forbidden):
                 self.assertNotIn(forbidden, serialized)
-        self.assertEqual(list((REPOSITORY_ROOT / "data").glob("*.jsonl")), [])
         self.assertIn("{split}", self.templates["template_id_pattern"])
         self.assertIn("{pair_index:03d}", self.templates["template_id_pattern"])
 

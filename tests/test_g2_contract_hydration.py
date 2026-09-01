@@ -48,8 +48,9 @@ class FrozenG2ContractHydrationTests(unittest.TestCase):
         found = re.findall(r"^([1-9]|1[0-6])\. \*\*[^*]+:\*\*", validator_section, flags=re.MULTILINE)
         self.assertEqual(found, [str(number) for number in range(1, 17)])
 
-    def test_hydration_does_not_materialize_scenario_jsonl(self) -> None:
-        self.assertEqual(list((REPOSITORY_ROOT / "data").glob("*.jsonl")), [])
+    def test_hydrated_contract_remains_immutable_after_later_materialization(self) -> None:
+        self.assertTrue(CONTRACT_PATH.is_file())
+        self.assertIn("intentionally contains no scenario instances", self.contract)
 
 
 if __name__ == "__main__":

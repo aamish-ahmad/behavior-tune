@@ -1,0 +1,11 @@
+{
+  "config_version": "behaviortune-eval-v1",
+  "base_model_config": "configs/base_model.yaml",
+  "conditions_config": "configs/conditions.yaml",
+  "split_order": ["eval_core", "holdout_principal", "holdout_family", "holdout_joint"],
+  "splits": {"eval_core": {"path": "data/eval_core.jsonl", "scenario_count": 64}, "holdout_principal": {"path": "data/holdout_principal.jsonl", "scenario_count": 64}, "holdout_family": {"path": "data/holdout_family.jsonl", "scenario_count": 64}, "holdout_joint": {"path": "data/holdout_joint.jsonl", "scenario_count": 64}},
+  "conditions": ["base", "system", "context", "long_neutral", "qlora"],
+  "decoding": {"do_sample": false, "max_new_tokens": 16, "batch_size": 1},
+  "output_contract": "exact_choice_line_v1",
+  "no_condition_specific_decoding_changes": true
+}

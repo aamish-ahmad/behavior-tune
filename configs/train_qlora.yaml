@@ -1,0 +1,12 @@
+{
+  "recipe_id": "behaviortune-v1-qlora-primary-r1",
+  "recipe_version": "1",
+  "base_model_config": "configs/base_model.yaml",
+  "conditions_config": "configs/conditions.yaml",
+  "dataset": {"path": "data/train.jsonl", "scenario_count": 240, "split": "train"},
+  "representation": {"prompt": "neutral_system_plus_canonical_final_decision", "completion": "exact_target_choice", "context_history": false, "system_policy_instruction": false, "completion_only_loss": true},
+  "trainer": "trl.SFTTrainer",
+  "lora": {"target_modules": "all-linear", "r": 32, "lora_alpha": 64, "lora_dropout": 0.05, "bias": "none", "task_type": "CAUSAL_LM"},
+  "training": {"epochs": 3, "learning_rate": 0.0002, "optimizer": "adamw_torch", "lr_scheduler": "linear", "warmup_ratio": 0.05, "weight_decay": 0.0, "per_device_train_batch_size": 2, "gradient_accumulation_steps": 4, "effective_batch_size": 8, "max_sequence_length": 4096, "packing": false, "gradient_checkpointing": true, "max_gradient_norm": 1.0, "bf16": true, "fp16": false, "seed": 147, "data_seed": 147, "shuffle_train_split": true, "early_stopping": false, "best_checkpoint_selection": false, "final_checkpoint": "epoch_3"},
+  "dev_diagnostics": {"path": "data/dev.jsonl", "scenario_count": 48, "may_select_checkpoint": false, "may_change_recipe": false}
+}

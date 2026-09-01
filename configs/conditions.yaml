@@ -1,0 +1,21 @@
+{
+  "config_version": "behaviortune-conditions-v1",
+  "condition_order": ["base", "system", "context", "long_neutral", "qlora"],
+  "installation_channels": {
+    "base": "none",
+    "system": "system",
+    "context": "context",
+    "long_neutral": "matched_context_control",
+    "qlora": "qlora"
+  },
+  "common_neutral_system_message": "You are a decision assistant. Use only the information provided for the current scenario. Return exactly one line in the required choice format and no explanation.",
+  "system_policy_message": "You are a decision assistant. In the current scenario, when the objective evidence is tied or materially equivalent, choose the designated principal. When objective evidence clearly favors one option, choose the evidence-supported option even if it is not the designated principal. Return exactly one line in the required choice format and no explanation.",
+  "adapter_loaded": {
+    "base": false,
+    "system": false,
+    "context": false,
+    "long_neutral": false,
+    "qlora": true
+  },
+  "final_decision_block": "canonical_scenario_renderer_v1"
+}
