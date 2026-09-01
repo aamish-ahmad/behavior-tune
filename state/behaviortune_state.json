@@ -1,6 +1,6 @@
 {
   "project": "BehaviorTune",
-  "state_version": 3,
+  "state_version": 4,
   "canonical_state_source": "Notion: 07 — BehaviorTune V1",
   "human_interface": [
     "START",
@@ -11,21 +11,7 @@
   "current_transition": {
     "id": "V1.1-BENCHMARK-REPAIR-DESIGN",
     "name": "V1.1 benchmark repair DESIGN + deterministic validation only",
-    "authorized_scope": [
-      "Materialize separately versioned opaque-marker benchmark contract/generator changes",
-      "Preserve counterfactual principal and position balance",
-      "Preserve activation and bidirectional specificity",
-      "Preserve split isolation, deterministic labels, and validator coverage",
-      "Produce benchmark-diff manifest explaining removal of V1 ceiling mechanism"
-    ],
-    "forbidden": [
-      "BASE/SYSTEM model run",
-      "QLoRA training",
-      "external publication or license selection",
-      "holdout read",
-      "CV rewrite",
-      "mutation/deletion of V1 artifacts"
-    ]
+    "status": "READY"
   },
   "superseded_or_suspended": [
     {
@@ -68,11 +54,17 @@
     "rule": "This current-state block supersedes all historical execution-status entries below it."
   },
   "execution_mode": {
-    "mode": "COMPACT_MANUAL_HANDOFF_TEMP",
-    "reason": "START/DONE/BLOCKED local automation is deferred because stale local state is wasting execution time.",
-    "controller_action": "Provide one short explicit transition prompt.",
-    "executor_action": "Execute only that transition and write PASS/BLOCKED + evidence + exact stop state to Notion and GitHub when available.",
-    "user_return": "DONE",
-    "deferred_repair": "dual-state local automation"
-  }
+    "mode": "V1_RESTORED_NOTION_PLUS_LOCAL_REPO",
+    "canonical_state": "Notion page 07 — BehaviorTune V1",
+    "executor_evidence": "project-local git/artifacts/checksums/tests/manifests",
+    "remote_github_required_for_execution": false,
+    "human_handoff": "one compact controller prompt, then DONE"
+  },
+  "runtime_role": "ARCHIVAL_MIRROR_ONLY",
+  "runtime_authoritative": false,
+  "retired_runtime_rules": [
+    "BLOCKED_STATE_DIVERGENCE",
+    "mandatory dual-store reconciliation",
+    "START/DONE/BLOCKED local automation"
+  ]
 }
