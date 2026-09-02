@@ -1,0 +1,23 @@
+{
+  "artifact": "V1.1 opaque-marker deterministic validation",
+  "status": "PASS",
+  "record_count": 544,
+  "pair_count": 272,
+  "validator_coverage": [
+    "no_direct_answer_leakage",
+    "counterfactual_principal_swap",
+    "principal_position_balance",
+    "activation_and_bidirectional_specificity",
+    "split_and_family_isolation",
+    "deterministic_labels"
+  ],
+  "blueprint_sha256": "541a655adee547c07c449d9ee93762722d3cfa65360342c83bcd163681200f14",
+  "byte_identical_regeneration": true,
+  "forbidden_work_not_performed": [
+    "BASE/SYSTEM inference",
+    "QLoRA training",
+    "holdout read",
+    "external publication",
+    "V1 artifact mutation"
+  ]
+}

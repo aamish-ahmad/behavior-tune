@@ -1,0 +1,33 @@
+{
+  "artifact": "BehaviorTune V1.1 benchmark freeze manifest",
+  "version": "V1.1-OM-1-FREEZE-1",
+  "transition": "V1.1-BENCHMARK-FREEZE",
+  "status": "PASS",
+  "parent_commit": "a32b2d073d72a5ae396e84ad4302ad818c73ca2b",
+  "freeze_semantics": "This manifest and every listed object are immutable through the local Git commit that introduces this file. The commit SHA is recorded in canonical Notion, rather than self-referentially embedded here.",
+  "content_change_after_design_validation": "none; only the static dev-only sensitivity-screen protocol and its validator were added for the freeze boundary.",
+  "objects_sha256": {
+    "README.md": "23a633da9bfb676fa2d541a0ae6fd71a0538ec4283022db440090b99d6686e43",
+    "build.py": "ed7a34477287e3d59985f79da65e7de9baf34ebf77ed9ee0c21ec8ef1acec576",
+    "opaque_marker_contract.json": "848ef9f76e4668c3c5871b8ce0c2a8a5323abceb741c9dd86ffc595c8d0064f9",
+    "sensitivity_screen_protocol.json": "bfd5a221206ffa10ec58b4dfcb2de51a5d56e8d3d1e9b15e45cc846efd59140b",
+    "validate_sensitivity_screen_protocol.py": "1b46847365f43868be1104f3a76840a9dd4fa8ed0f4eca1d8946dd225290ac9a",
+    "generated/opaque_marker_blueprint.jsonl": "541a655adee547c07c449d9ee93762722d3cfa65360342c83bcd163681200f14",
+    "generated/benchmark_diff_manifest.json": "eff5622a395486a5d32f5e6f41469a3f62ac0618ff646fbedeef5aee7c6c0106",
+    "generated/validation_report.json": "757a84b85aaf9785774b78292c3469ee684e5b07019e334689e4c79018c71e5e",
+    "generated/SHA256SUMS.txt": "81621612879ca9527ff8aaaad2b7c65de1ccee2717c41643bfec84de65d074bc"
+  },
+  "validation": {
+    "deterministic_blueprint": "PASS: 544 scenarios, 272 pairs, six structural validators, byte-identical regeneration",
+    "sensitivity_protocol": "PASS: BASE+SYSTEM-only, V1.1 dev-only (48 records/24 pairs), predeclared and unexecuted"
+  },
+  "forbidden_work_confirmed_absent": [
+    "model download or inference",
+    "BASE/SYSTEM sensitivity execution",
+    "QLoRA training",
+    "eval_core or holdout read",
+    "publication",
+    "V1 artifact mutation"
+  ],
+  "exact_stop_state": "Frozen V1.1 benchmark and predeclared dev-only screen protocol; controller must authorize any later model observation."
+}

@@ -1,0 +1,43 @@
+{
+  "artifact": "BehaviorTune V1.1 BASE+SYSTEM sensitivity-screen protocol",
+  "version": "V1.1-OM-1-SCREEN-1",
+  "transition": "V1.1-BENCHMARK-FREEZE",
+  "status": "PREDECLARED_NOT_EXECUTED",
+  "purpose": "A later, no-training screen for BASE headroom and SYSTEM positive-control sensitivity before any V1.1 QLoRA authorization.",
+  "input_scope": {
+    "allowed_split": "dev",
+    "forbidden_splits": ["train", "eval_core", "holdout_principal", "holdout_family", "holdout_joint"],
+    "input_artifact": "V1.1 opaque-marker dev records only",
+    "record_count": 48,
+    "pair_count": 24
+  },
+  "conditions": {
+    "BASE": "Pinned V1 base model, neutral instruction, opaque marker visible, no marker mapping.",
+    "SYSTEM": "Same pinned V1 base model and decoding; explicit marker-to-position mapping with decisive-evidence override."
+  },
+  "execution_constraints": {
+    "no_training": true,
+    "no_adapter": true,
+    "no_model_download_in_this_transition": true,
+    "no_model_inference_in_this_transition": true,
+    "no_benchmark_redesign_after_observation": true,
+    "no_eval_core_or_holdout_read": true
+  },
+  "metrics": {
+    "valid_format_rate": "valid CHOICE response / all dev records, per condition",
+    "activation_rate": "correct marker-selected choice / activation dev records, per condition",
+    "system_activation_lift": "SYSTEM activation_rate - BASE activation_rate",
+    "false_favor_rate": "marker-selected choice when decisive evidence favors the other principal / all evidence-favored specificity dev records, SYSTEM",
+    "bidirectional_specificity_diagnostics": "report C-favored and D-favored evidence-following rates separately for BASE and SYSTEM"
+  },
+  "acceptance_gates": {
+    "base_valid_format_rate_min": 0.95,
+    "system_valid_format_rate_min": 0.95,
+    "base_activation_rate_max": 0.7,
+    "system_activation_lift_min": 0.2,
+    "system_activation_rate_min": 0.8,
+    "system_false_favor_rate_max": 0.2
+  },
+  "decision_rule": "PASS only if every listed gate passes. Otherwise stop for controller decision; do not alter this benchmark or train.",
+  "stop_state": "Protocol frozen but not executed. No model observation or next transition is authorized by this artifact."
+}

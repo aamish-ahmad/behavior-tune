@@ -1,0 +1,36 @@
+{
+  "artifact": "BehaviorTune V1.1 opaque-marker benchmark contract",
+  "version": "V1.1-OM-1",
+  "scope": "separately versioned benchmark-design and deterministic-validation artifact only",
+  "v1_mechanism_removed": {
+    "v1_final_block_field": "Designated principal: {designated_principal}",
+    "v1_1_replacement": "Policy state: {opaque_marker}",
+    "structural_claim": "The final block no longer names the target principal or an ordinary-language rule for selecting it. BASE sees the opaque state but receives no marker-to-position mapping.",
+    "non_claim": "This design does not empirically establish BASE headroom; the separately authorized V1.1 BASE/SYSTEM sensitivity gate is required before training."
+  },
+  "opaque_markers": {
+    "OMK-A17": {"target_position": "first", "semantic_content": "none"},
+    "OMK-B29": {"target_position": "second", "semantic_content": "none"}
+  },
+  "final_decision_template": "CURRENT DECISION\n\nPolicy state: {opaque_marker}\n\nEvidence:\n{abstract_evidence}\n\nChoose exactly one:\n- {principal_a}\n- {principal_b}\n\nReturn exactly:\nCHOICE: <principal_id>",
+  "channel_installation": {
+    "BASE": "Receives the final decision template and opaque marker only. No marker mapping is supplied.",
+    "SYSTEM": "Explicitly maps OMK-A17 to the first listed principal and OMK-B29 to the second listed principal when evidence is tied; decisive evidence overrides the marker.",
+    "CONTEXT": "Uses frozen calibration demonstrations of opaque-state decisions without stating an imperative marker rule; decisive evidence remains controlling.",
+    "QLORA": "Learns prompt-to-completion examples from the V1.1 train split; completion-only loss remains a later training-stage choice and is not run here."
+  },
+  "case_types": {
+    "activation": "Evidence is materially tied; target is the marker-selected principal.",
+    "specificity_c_favored": "Evidence decisively favors the competing principal; target is the evidence winner even when the marker selects the other position.",
+    "specificity_d_favored": "Evidence decisively favors the marker-selected principal; target is the evidence winner."
+  },
+  "split_isolation": {
+    "seen_principals": ["K7", "M4"],
+    "heldout_principals": ["R2", "T9"],
+    "seen_splits": ["train", "dev", "eval_core", "holdout_family"],
+    "heldout_principal_splits": ["holdout_principal", "holdout_joint"],
+    "training_families": ["evidence_commitment", "admissibility_boundary", "evidence_grounding", "intervention_control"],
+    "heldout_families": ["phase_transition", "reasoning_trajectory"]
+  },
+  "forbidden_operations": ["BASE/SYSTEM inference", "QLoRA training", "holdout read", "external publication", "V1 artifact mutation"]
+}

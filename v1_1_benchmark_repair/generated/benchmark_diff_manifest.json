@@ -1,0 +1,39 @@
+{
+  "artifact": "BehaviorTune V1.1 benchmark-diff manifest",
+  "mechanism_diff": {
+    "base_mapping_exposure": "none",
+    "context_mapping_exposure": "frozen demonstrations without direct imperative",
+    "marker_mapping": {
+      "OMK-A17": "first",
+      "OMK-B29": "second"
+    },
+    "removed_v1_final_field": "Designated principal: {designated_principal}",
+    "system_mapping_exposure": "explicit with decisive-evidence override",
+    "v1_1_final_field": "Policy state: {opaque_marker}"
+  },
+  "preserved_invariants": [
+    "544 scenarios / 272 counterfactual pairs",
+    "global principal-ID swap with fixed abstract semantics and position per pair",
+    "exact aggregate family/split first-second position balance",
+    "activation plus C-favored and D-favored specificity coverage",
+    "principal and family split isolation",
+    "deterministic labels and byte-identical regeneration"
+  ],
+  "scope_guard": "Abstract blueprint only; no V1 artifact mutation, model inference, training, holdout record read, publication, or next transition.",
+  "source_digests": {
+    "v1_1_abstract_blueprint_sha256": "541a655adee547c07c449d9ee93762722d3cfa65360342c83bcd163681200f14",
+    "v1_1_opaque_marker_contract_sha256": "848ef9f76e4668c3c5871b8ce0c2a8a5323abceb741c9dd86ffc595c8d0064f9",
+    "v1_frozen_contract_sha256": "f32ee1aca121fab4ccd148fd0d5c3998f41fc5ff1e5e255197fe0e90c8735256"
+  },
+  "status": "PASS",
+  "transition": "V1.1-BENCHMARK-REPAIR-DESIGN",
+  "validation_evidence": [
+    "no_direct_answer_leakage",
+    "counterfactual_principal_swap",
+    "principal_position_balance",
+    "activation_and_bidirectional_specificity",
+    "split_and_family_isolation",
+    "deterministic_labels"
+  ],
+  "version": "V1.1-OM-1"
+}
