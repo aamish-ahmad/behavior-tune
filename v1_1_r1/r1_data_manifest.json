@@ -1,0 +1,29 @@
+{
+  "artifact": "BehaviorTune V1.1-R1 runnable benchmark materialization",
+  "base_marker_mapping_exposure": "none",
+  "marker_mapping": {
+    "first": "OMK-A17",
+    "second": "OMK-B29"
+  },
+  "materialization_is_model_free": true,
+  "pair_count": 272,
+  "r1_data_hashes": {
+    "dev.jsonl": "5eed447ba0878e4a6e26729476ef43d5bd59966469558fc1a0545af904023e5f",
+    "eval_core.jsonl": "807eb5c7ef3bede23aa2fbf44fa4ad3607877835256cdad9383518953c681c1d",
+    "holdout_family.jsonl": "f823607a3f42b2c549c502a9958fb805a75beff18fdf1d177d839f752a166df2",
+    "holdout_joint.jsonl": "0cc76df04c5cc394b4f9f46938c6d2605328caffbb9930b8907494f3bb44cd24",
+    "holdout_principal.jsonl": "48fef33ebfb7a8d4f3b46ad4b8c3eb6befcb4c542d6af828455c5860e8e344fc",
+    "train.jsonl": "be16a7c198cacd727992f4ff82493ec40e5c042f9a485e2091a62eab213f91eb"
+  },
+  "scenario_count": 544,
+  "source_v1_data_hashes": {
+    "dev.jsonl": "9ea27e93efa51b18b47646e86020be722c1d708c0c5d3d479ae81bb93a2e49e6",
+    "eval_core.jsonl": "f858195119ee85a58b9126e19d076cb94161a3b92286d01e1426067aad33e628",
+    "holdout_family.jsonl": "765496cce5302373148f639db15cdf85b3853be2146e4499cb04da8f4b658cb8",
+    "holdout_joint.jsonl": "a582ba04853ca54d35a0a084dac7ca54ee75b55cdb0d58b0b664e58c385d3626",
+    "holdout_principal.jsonl": "ce6a367e7da55894cf3e1bbb93b15b42c75f738503cf8e03feeb2ace62f6504e",
+    "train.jsonl": "42a4ecc391561e018ffcb3f52b88d820c409eda5f52d561fb24407b9019060a8"
+  },
+  "system_message": "You are a decision assistant. Interpret Policy state OMK-A17 as follows: when the objective evidence is tied or materially equivalent, choose the first listed principal. Interpret Policy state OMK-B29 as follows: when the objective evidence is tied or materially equivalent, choose the second listed principal. When objective evidence clearly favors one option, choose the evidence-supported option regardless of Policy state. Return exactly one line in the required choice format and no explanation.",
+  "version": "V1.1-R1-1"
+}

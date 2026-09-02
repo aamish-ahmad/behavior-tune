@@ -1,0 +1,29 @@
+{
+  "artifact": "BehaviorTune V1.1-R1 BASE+SYSTEM sensitivity-screen protocol",
+  "version": "V1.1-R1-SCREEN-1",
+  "status": "PREDECLARED_NOT_EXECUTED",
+  "input_scope": {
+    "allowed_split": "dev",
+    "record_count": 48,
+    "pair_count": 24,
+    "forbidden_model_observation_splits": ["eval_core", "holdout_principal", "holdout_family", "holdout_joint"]
+  },
+  "conditions": ["BASE", "SYSTEM"],
+  "runtime": {
+    "base_model_config": "configs/base_model.yaml",
+    "do_sample": false,
+    "max_new_tokens": 16,
+    "adapter": null
+  },
+  "acceptance_gates": {
+    "base_valid_format_rate_min": 0.95,
+    "system_valid_format_rate_min": 0.95,
+    "base_activation_rate_max": 0.7,
+    "system_activation_lift_min": 0.2,
+    "system_activation_rate_min": 0.8,
+    "system_false_favor_rate_max": 0.2
+  },
+  "required_diagnostics": ["BASE and SYSTEM bidirectional C-favored/D-favored evidence-following rates"],
+  "stop_rule": "If any gate fails, stop for controller decision. Do not redesign or train after observing screen results.",
+  "forbidden": ["QLoRA training", "CONTEXT/QLORA model evaluation", "eval_core or holdout model observation", "benchmark/data edits", "publication", "V1 artifact mutation"]
+}

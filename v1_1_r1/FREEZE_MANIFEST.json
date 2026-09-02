@@ -1,0 +1,43 @@
+{
+  "artifact": "BehaviorTune V1.1-R1 runnable benchmark freeze manifest",
+  "version": "V1.1-R1-1",
+  "transition": "V1.1-R1-RUNNABLE-BENCHMARK-FREEZE",
+  "status": "PASS",
+  "derivation": {
+    "source_v1_data_manifest": "data/data_manifest.json",
+    "source_v1_commit": "661620cede67aece65219b734f504e3c87f9be4d",
+    "incomplete_v1_1_audit_commit_preserved": "e718554042a174cf29d8501b019abcbbc9111403",
+    "visible_interface_change_only": "Designated principal field is removed from projected records/final blocks and replaced by a position-derived opaque marker."
+  },
+  "objects_sha256": {
+    "src/behaviortune/v11r1.py": "2418e16796d4fc4bdea9008c37df5d76762d74b122a6d93f0d773274b19726bd",
+    "tests/test_v11r1_runtime.py": "ee916624616d8b2595df0ddb660a3001963088ae83633008320c9c9571ba5f8e",
+    "v1_1_r1/materialize.py": "4ad1daa24bcb8d6b45ae2fef39e0acf99ebc2421c57949b9e4234e606037d21a",
+    "v1_1_r1/r1_data_manifest.json": "3d961add3fe6dd6737d1fea6ffd6bdb9a56d9d21f7551b66a25e8424f36f5a08",
+    "v1_1_r1/sensitivity_screen_protocol.json": "7c592ae6f71fcfe424472a0e09732b71f498508e57a2dbdeacc677b00a088d35",
+    "v1_1_r1/data/train.jsonl": "be16a7c198cacd727992f4ff82493ec40e5c042f9a485e2091a62eab213f91eb",
+    "v1_1_r1/data/dev.jsonl": "5eed447ba0878e4a6e26729476ef43d5bd59966469558fc1a0545af904023e5f",
+    "v1_1_r1/data/eval_core.jsonl": "807eb5c7ef3bede23aa2fbf44fa4ad3607877835256cdad9383518953c681c1d",
+    "v1_1_r1/data/holdout_principal.jsonl": "48fef33ebfb7a8d4f3b46ad4b8c3eb6befcb4c542d6af828455c5860e8e344fc",
+    "v1_1_r1/data/holdout_family.jsonl": "f823607a3f42b2c549c502a9958fb805a75beff18fdf1d177d839f752a166df2",
+    "v1_1_r1/data/holdout_joint.jsonl": "0cc76df04c5cc394b4f9f46938c6d2605328caffbb9930b8907494f3bb44cd24"
+  },
+  "validated_invariants": [
+    "544 projected scenarios and 272 preserved counterfactual pairs",
+    "all V1 frozen input hashes match data/data_manifest.json",
+    "split, pair, principal identity/position, case type, labels, facts, and trajectories are preserved",
+    "OMK-A17 is derived only from first position and OMK-B29 only from second position",
+    "BASE receives no marker mapping; SYSTEM receives the canonical literal mapping",
+    "CONTEXT and LONG-NEUTRAL trajectories are copied without target-rule text",
+    "QLORA prompt-to-completion uses the same BASE-style prompt and frozen target choice",
+    "all five conditions render through an injected model-free fake backend",
+    "runnable benchmark rematerialization is byte-identical"
+  ],
+  "verification": {
+    "r1_targeted_tests": "6 passed",
+    "full_local_regression": "46 passed",
+    "model_activity": false,
+    "training_activity": false
+  },
+  "stop_state": "R1 is materialized and locally validated; commit/freeze follows only after checksum-ledger verification."
+}
