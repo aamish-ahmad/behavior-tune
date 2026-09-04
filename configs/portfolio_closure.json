@@ -1,0 +1,73 @@
+{
+  "contract_version": "1.0",
+  "target": "engineering_portfolio_closure",
+  "artifact_dir": "artifacts/portfolio-closure",
+  "accepted_scientific_outcomes": ["strong", "weak", "null"],
+  "forbidden_scope": [
+    "new_hypothesis",
+    "new_experiment_family",
+    "v2_science",
+    "paper_rescue",
+    "result_shopping",
+    "manual_stage_skip",
+    "publish_before_clean_eval"
+  ],
+  "stages": [
+    {
+      "id": "precheck",
+      "command": ["python", "-m", "behaviortune.closure_steps", "precheck"],
+      "evidence": "00_precheck.json",
+      "requires": []
+    },
+    {
+      "id": "benchmark_repair",
+      "command": ["python", "-m", "behaviortune.closure_steps", "benchmark_repair"],
+      "evidence": "01_benchmark_repair.json",
+      "requires": ["precheck"]
+    },
+    {
+      "id": "static_leak_audit",
+      "command": ["python", "-m", "behaviortune.closure_steps", "static_leak_audit"],
+      "evidence": "02_static_leak_audit.json",
+      "requires": ["benchmark_repair"]
+    },
+    {
+      "id": "qlora_train",
+      "command": ["python", "-m", "behaviortune.closure_steps", "qlora_train"],
+      "evidence": "03_qlora_train.json",
+      "requires": ["static_leak_audit"],
+      "required_env_any": ["LAMBDA_API_KEY", "BEHAVIORTUNE_GPU_EXECUTOR"]
+    },
+    {
+      "id": "clean_eval",
+      "command": ["python", "-m", "behaviortune.closure_steps", "clean_eval"],
+      "evidence": "04_clean_eval.json",
+      "requires": ["qlora_train"]
+    },
+    {
+      "id": "package_public_surfaces",
+      "command": ["python", "-m", "behaviortune.closure_steps", "package_public_surfaces"],
+      "evidence": "05_package_public_surfaces.json",
+      "requires": ["clean_eval"]
+    },
+    {
+      "id": "publish",
+      "command": ["python", "-m", "behaviortune.closure_steps", "publish"],
+      "evidence": "06_publish.json",
+      "requires": ["package_public_surfaces"],
+      "required_env_any": ["HF_TOKEN", "HUGGING_FACE_HUB_TOKEN"]
+    },
+    {
+      "id": "independent_verify",
+      "command": ["python", "-m", "behaviortune.closure_steps", "independent_verify"],
+      "evidence": "07_independent_verify.json",
+      "requires": ["publish"],
+      "must_be_independent": true
+    }
+  ],
+  "terminal": {
+    "status": "CLOSED",
+    "requires_stage": "independent_verify",
+    "requires_independent": true
+  }
+}
