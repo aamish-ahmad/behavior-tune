@@ -2,14 +2,14 @@
 
 ## Current authoritative transition
 
-`V1.1-R1-RECRUITER-PUBLIC-METADATA` / **STARTED** — state version 30.
+`V1.1-R1-RECRUITER-PUBLIC-METADATA` / **CLOSED** — state version 31.
 
-The functional public-surface repair is independently verified: anonymous
-GitHub and raw README return 200, all six dataset viewer splits render, the
-viewer is valid, frozen hashes pass, and the adapter is unchanged. The current
-bounded transition finishes recruiter-facing GitHub About/topics/release and
-Hugging Face card/provenance/cross-link metadata.
+The complete public surface is independently verified: anonymous GitHub and raw
+README return 200; About description, homepage, and all eight requested topics
+render; the public release resolves; all six dataset viewer splits render; the
+viewer is valid; cards and claim-to-proof links resolve; frozen hashes pass; and
+the adapter weight SHA-256 is unchanged.
 
-No training, inference, GPU/cloud work, new science, V2, benchmark change,
-frozen dataset or adapter mutation, force push, or secret exposure is
-authorized. Re-close only after anonymous verification of every public surface.
+All hard gates G1-G10 pass. No training, inference, GPU/cloud work, new science,
+V2, benchmark change, frozen dataset or adapter mutation, force push, or secret
+exposure occurred. BehaviorTune is CLOSED and authority is returned to the human.

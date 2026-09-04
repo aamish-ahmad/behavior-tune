@@ -1,13 +1,13 @@
 {
   "project": "BehaviorTune",
-  "state_version": 30,
+  "state_version": 31,
   "canonical_state_source": "Notion: 07 — BehaviorTune V1",
   "human_interface": ["START", "DONE", "BLOCKED"],
-  "status": "STARTED",
+  "status": "CLOSED",
   "current_transition": {
     "id": "V1.1-R1-RECRUITER-PUBLIC-METADATA",
     "name": "Finish recruiter-facing GitHub and Hugging Face presentation metadata",
-    "status": "STARTED"
+    "status": "CLOSED"
   },
   "functional_surface_repair": {
     "status": "VERIFIED",
@@ -38,24 +38,26 @@
     "G5": "PASS",
     "G6": "PASS",
     "G7": "PASS",
-    "G8": "PASS_FUNCTIONAL_REVERIFY_METADATA",
+    "G8": "PASS",
     "G9": "PASS",
-    "G10": "REVERIFYING_PUBLIC_SURFACE"
+    "G10": "PASS"
   },
   "public_proof": {
     "github": "https://github.com/aamish-ahmad/behavior-tune",
     "release_tag": "v1.0.0",
     "dataset": "https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1",
     "dataset_content_revision": "1cafbc1f9cf421d43446c385545319a3b0a0a3eb",
-    "dataset_repository_revision": "2911473b2166e7e4b3173cbcf534b54a348373b9",
+    "dataset_repository_revision": "3c38b860a4443fe7ca0c31d09347d7ec8910bc62",
     "adapter": "https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter",
     "adapter_content_revision": "9b4095666621104a94ce2193e62de363e35cba75",
-    "adapter_repository_revision": "89daa76d5ba62f47118f376695199ec2ad4db401",
+    "adapter_repository_revision": "3322230280eed993711dfc09705ebef5cef39b41",
     "adapter_sha256": "8d16ef2cb6ff7a982511fd58f21eff52538761f4d198b4cc5cbfd73ca7c9d4de",
-    "verification_sha256": "b8d268f1365bebbb125dfa5a567e093e37e49fe42e084e1089d3fb1784338251"
+    "github_presentation_commit": "97d8189cf76a69b58dd0e31320d82aacedf510f5",
+    "anonymous_verification_file": "artifacts/behaviortune-public-surface-repair-20260904/ANONYMOUS_PUBLIC_SURFACE_VERIFICATION.json",
+    "verification_sha256": "5da4ab2eaf441ebdc5db8bca712eafe2c22f9a0926bd5de38b0b733880350226"
   },
   "evidence_boundary": "Accepted R1 observations cover activation and specificity on eval_core only; no holdout, persistence, generalization, or remediation outcome is claimed.",
   "forbidden_work_performed": false,
-  "next_authority": "project controller only",
-  "runtime_role": "RECRUITER_METADATA_STATE_MIRROR"
+  "next_authority": "returned to human",
+  "runtime_role": "TERMINAL_STATE_MIRROR"
 }
