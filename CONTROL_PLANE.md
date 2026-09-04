@@ -1,21 +1,19 @@
 # BehaviorTune Control Plane
 
-## Current authoritative transition
+## Terminal state
 
-`V1.1-R1-PUBLIC-PROOF-CLOSURE` / **STARTED** (state version 27).
+`V1.1-R1-PUBLIC-PROOF-CLOSURE` / **PASS** — state version 28 is
+**CLOSED**.
 
-Canonical authority is the `CONTROL PLANE — CURRENT AUTHORITATIVE STATE` block
-on Notion page `07 — BehaviorTune V1`. This file is its publication-state
-mirror.
+All hard gates G1–G10 pass. The code and evidence are public at
+<https://github.com/aamish-ahmad/behavior-tune>; the frozen dataset is public
+at <https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1>; and the
+accepted adapter is public at
+<https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter>.
 
-Accepted predecessor: G9 PASS at
-`6ef019e996982417df50127a5c351f179b75ea6b`; canonical v26 block SHA-256
-`4c03113bb64060fdb134cf130758917d21e691fcfe73e45013910b2ace4039d0`.
+The immutable portfolio entrypoint is tag `v1.0.0`. Canonical authority is the
+`CONTROL PLANE — CURRENT AUTHORITATIVE STATE` block on Notion page
+`07 — BehaviorTune V1`; this file is its terminal publication-state mirror.
 
-The committed transition publishes and verifies the GitHub repository, the
-frozen V1.1-R1 dataset, the accepted QLoRA adapter, cards, provenance, hashes,
-results, and the canonical CV claim-to-proof map. It then marks G8/G10 PASS and
-records terminal `CLOSED` state.
-
-No new training, inference, benchmark work, holdout observation, model family,
-cloud/GPU lifecycle, or scientific expansion is authorized.
+No next execution transition is authorized. Authority is returned to Aamish
+Ahmad.

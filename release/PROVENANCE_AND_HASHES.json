@@ -1,13 +1,22 @@
 {
   "schema_version": 1,
   "artifact": "BehaviorTune V1.1-R1 public release provenance",
-  "status": "PREPARED_PENDING_PUBLICATION",
+  "status": "PUBLIC_CONTENT_VERIFIED",
   "source_commit": "6ef019e996982417df50127a5c351f179b75ea6b",
   "release_tag": "v1.0.0",
   "public_targets": {
     "github": "https://github.com/aamish-ahmad/behavior-tune",
     "dataset": "https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1",
     "adapter": "https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter"
+  },
+  "publications": {
+    "github_main_verified_commit": "276761915dcd8555a3303d074e6adda62afb865f",
+    "dataset_content_revision": "1cafbc1f9cf421d43446c385545319a3b0a0a3eb",
+    "adapter_content_revision": "9b4095666621104a94ce2193e62de363e35cba75",
+    "dataset_public": true,
+    "adapter_public": true,
+    "published_files_match_local_git_blobs": true,
+    "adapter_lfs_sha256_verified": true
   },
   "license": {
     "identifier": "other",

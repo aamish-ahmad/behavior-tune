@@ -11,6 +11,21 @@ tags:
 - synthetic
 - behavioral-evaluation
 - qlora
+configs:
+- config_name: default
+  data_files:
+  - split: train
+    path: data/train.jsonl
+  - split: dev
+    path: data/dev.jsonl
+  - split: eval_core
+    path: data/eval_core.jsonl
+  - split: holdout_principal
+    path: data/holdout_principal.jsonl
+  - split: holdout_family
+    path: data/holdout_family.jsonl
+  - split: holdout_joint
+    path: data/holdout_joint.jsonl
 ---
 
 # BehaviorTune Trajectories V1.1-R1
@@ -29,6 +44,17 @@ conditions. It contains 544 scenarios arranged as 272 counterfactual pairs.
 | `holdout_principal` | 64 | 32 | `48fef33ebfb7a8d4f3b46ad4b8c3eb6befcb4c542d6af828455c5860e8e344fc` |
 | `holdout_family` | 64 | 32 | `f823607a3f42b2c549c502a9958fb805a75beff18fdf1d177d839f752a166df2` |
 | `holdout_joint` | 64 | 32 | `0cc76df04c5cc394b4f9f46938c6d2605328caffbb9930b8907494f3bb44cd24` |
+
+## Record schema
+
+Each JSONL row is one scenario. Stable identifiers and grouping fields include
+`schema_version`, `scenario_id`, `pair_id`, `split`, `template_id`,
+`source_family`, `case_type`, and `variant_id`. Decision inputs include
+`principal_a`, `principal_b`, `option_order`, `base_facts`, `decision_prompt`,
+`opaque_marker`, `context_trajectory`, and `long_neutral_trajectory`. Frozen
+labels and controls include `designated_position`, `marker_target_position`,
+`target_choice`, `objective_winner`, `activation_expected`,
+`persistence_probe`, and `source_designation_removed`.
 
 ## Design and provenance
 
