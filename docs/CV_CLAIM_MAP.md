@@ -5,7 +5,9 @@ each claim to map to public, inspectable proof. The four clauses below are
 copied verbatim from the canonical `CV rendering` section; this file does not
 rewrite them.
 
-Canonical source: [07 — BehaviorTune V1](https://app.notion.com/p/3c0d086d0fe98157851eddec745382af).
+Planning record: [07 — BehaviorTune V1 (Notion; access may be required)](https://app.notion.com/p/3c0d086d0fe98157851eddec745382af).
+Every proof link below is public; access to the planning record is not needed
+to inspect the evidence.
 
 ## “real open-model fine-tuning with Transformers/TRL/PEFT/LoRA/QLoRA”
 
@@ -51,13 +53,17 @@ acceptance environment had no Docker engine. No image-build claim is made.
 
 ## Reproduce the public engineering proof
 
+First follow the [fresh-environment setup](G9_REPRODUCIBILITY.md#setup).
+Then, from the repository root, run only the synthetic model-free reviewer path:
+
 ```bash
-python -m pip install -e '.[api]'
-PYTHONPATH=src python -m unittest discover -s tests -v
-PYTHONPATH=src python -m behaviortune.cli replay \
+python -m unittest tests.test_g9_engineering tests.test_g9_api -v
+python -m behaviortune.cli replay \
   --scenario examples/reviewer_repro/scenario.json \
   --condition BASE \
   --raw-output examples/reviewer_repro/raw_output.txt \
   --output-dir artifacts/reviewer-repro-local
-sha256sum -c v1_1_r1/SHA256SUMS.txt
 ```
+
+Use a new output directory for each replay; existing evidence is never overwritten.
+This does not run training, inference, or scientific-split evaluation.

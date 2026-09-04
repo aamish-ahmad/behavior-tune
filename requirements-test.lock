@@ -1,0 +1,5 @@
+-r requirements-api.lock
+certifi==2026.2.25
+colorama==0.4.6; platform_system == "Windows"
+httpcore==1.0.9
+httpx==0.28.1

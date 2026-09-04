@@ -54,7 +54,7 @@ The project also includes a SYSTEM positive-control condition and a CONTEXT cond
 - **Independent verification:** [FINAL_VERIFICATION.json](artifacts/behaviortune-v11-r1-qlora-core-20260904/FINAL_VERIFICATION.json)
 - **CV claim → proof map:** [docs/CV_CLAIM_MAP.md](docs/CV_CLAIM_MAP.md)
 - **Release provenance + hashes:** [release/PROVENANCE_AND_HASHES.json](release/PROVENANCE_AND_HASHES.json)
-- **Immutable portfolio release:** `v1.0.0`
+- **Immutable portfolio release:** [v1.0.0](https://github.com/aamish-ahmad/behavior-tune/releases/tag/v1.0.0)
 
 ## Reproducible engineering surface
 
@@ -64,7 +64,26 @@ BehaviorTune exposes the frozen renderer and deterministic scorer through both a
 scenario → render → raw output → score → aggregate
 ```
 
-Run the model-free engineering tests:
+### Quick start — no GPU or model download
+
+Use Python 3.11 or newer. Clone the repository and create an isolated environment:
+
+```bash
+git clone https://github.com/aamish-ahmad/behavior-tune.git
+cd behavior-tune
+python -m venv .venv
+```
+
+Activate it with `source .venv/bin/activate` on macOS/Linux or
+`.\.venv\Scripts\Activate.ps1` in Windows PowerShell. Then install the locked
+API/test dependencies and the local package:
+
+```bash
+python -m pip install -r requirements-test.lock
+python -m pip install --no-deps -e .
+```
+
+Run the eight model-free engineering tests:
 
 ```bash
 python -m unittest tests.test_g9_engineering tests.test_g9_api -v
@@ -73,16 +92,12 @@ python -m unittest tests.test_g9_engineering tests.test_g9_api -v
 Run the API locally:
 
 ```bash
-export PYTHONPATH="$PWD/src"
 python -m uvicorn behaviortune.api:app --host 127.0.0.1 --port 8000
 ```
 
-Windows PowerShell:
-
-```powershell
-$env:PYTHONPATH = "$PWD\src"
-python -m uvicorn behaviortune.api:app --host 127.0.0.1 --port 8000
-```
+Open [interactive API docs](http://127.0.0.1:8000/docs) or
+[health status](http://127.0.0.1:8000/healthz) after starting the local service.
+The same command works in the activated Windows PowerShell environment.
 
 See [docs/G9_REPRODUCIBILITY.md](docs/G9_REPRODUCIBILITY.md) for the complete reviewer workflow.
 
@@ -92,4 +107,4 @@ The accepted R1 result observes only `eval_core` under BASE, SYSTEM, CONTEXT, an
 
 ## Release
 
-Portfolio release: **`v1.0.0`**. The public adapter, frozen dataset, manifests, results, hashes, and claim map are intended to make the result independently inspectable.
+Portfolio release: **[v1.0.0](https://github.com/aamish-ahmad/behavior-tune/releases/tag/v1.0.0)**. The public adapter, frozen dataset, manifests, results, hashes, and claim map are intended to make the result independently inspectable.
