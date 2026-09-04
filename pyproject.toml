@@ -18,6 +18,7 @@ api = [
 
 [project.scripts]
 behaviortune = "behaviortune.cli:main"
+behaviortune-close = "behaviortune.closure:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
