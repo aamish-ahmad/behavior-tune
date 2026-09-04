@@ -14,12 +14,12 @@ tags:
 configs:
 - config_name: default
   data_files:
+  - split: eval_core
+    path: data/eval_core.jsonl
   - split: train
     path: data/train.jsonl
   - split: dev
     path: data/dev.jsonl
-  - split: eval_core
-    path: data/eval_core.jsonl
   - split: holdout_principal
     path: data/holdout_principal.jsonl
   - split: holdout_family
@@ -55,6 +55,11 @@ Each JSONL row is one scenario. Stable identifiers and grouping fields include
 labels and controls include `designated_position`, `marker_target_position`,
 `target_choice`, `objective_winner`, `activation_expected`,
 `persistence_probe`, and `source_designation_removed`.
+
+The `eval_core` file is listed first in the viewer configuration so the generic
+JSON builder infers the optional `persistence_probe` struct before loading the
+train and dev splits, where that field is uniformly null. This ordering changes
+only Hub presentation; the canonical JSONL files and their hashes are unchanged.
 
 ## Design and provenance
 
