@@ -1,0 +1,59 @@
+{
+  "acceptance_gates": {
+    "base_activation_rate_max": {
+      "passed": true,
+      "threshold": 0.7
+    },
+    "base_valid_format_rate_min": {
+      "passed": true,
+      "threshold": 0.95
+    },
+    "system_activation_lift_min": {
+      "passed": true,
+      "threshold": 0.2
+    },
+    "system_activation_rate_min": {
+      "passed": true,
+      "threshold": 0.8
+    },
+    "system_false_favor_rate_max": {
+      "passed": true,
+      "threshold": 0.2
+    },
+    "system_valid_format_rate_min": {
+      "passed": true,
+      "threshold": 0.95
+    }
+  },
+  "bidirectional_specificity_diagnostics": {
+    "BASE": {
+      "specificity_c_favored": 1.0,
+      "specificity_d_favored": 1.0
+    },
+    "SYSTEM": {
+      "specificity_c_favored": 1.0,
+      "specificity_d_favored": 1.0
+    }
+  },
+  "conditions": [
+    "BASE",
+    "SYSTEM"
+  ],
+  "false_favor_denominator": 24,
+  "false_favor_numerator": 0,
+  "metrics": {
+    "base_activation_rate": 0.5833333333333334,
+    "base_valid_format_rate": 1.0,
+    "system_activation_lift": 0.375,
+    "system_activation_rate": 0.9583333333333334,
+    "system_false_favor_rate": 0.0,
+    "system_valid_format_rate": 1.0
+  },
+  "output_count": 96,
+  "protocol_version": "V1.1-R1-SCREEN-1",
+  "qlora_started": false,
+  "record_count": 48,
+  "schema_version": 1,
+  "screen_result": "PASS",
+  "split": "dev"
+}

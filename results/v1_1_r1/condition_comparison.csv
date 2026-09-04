@@ -1,0 +1,5 @@
+condition,activation_rate_valid,specificity_rate_valid,false_favor_rate_valid,format_failure_rate
+BASE,0.65625,1.0,0.0,0.0
+SYSTEM,0.9375,1.0,0.0,0.0
+CONTEXT,1.0,1.0,0.0,0.0
+QLORA,1.0,1.0,0.0,0.0

@@ -1,0 +1,67 @@
+{
+  "canonical_runtime_acceptance": "PASS",
+  "checks": {
+    "all_six_gates_pass": true,
+    "authority_returned_and_zero": true,
+    "bidirectional_diagnostics_recomputed_exact": true,
+    "bootstrap_and_screen_dependency_freeze_match": true,
+    "bounded_transfer_16_files": true,
+    "canonical_runtime_acceptance_pass": true,
+    "canonical_v25_hash_exact": true,
+    "epoch6_one_effect_return_stale_reject": true,
+    "epoch7_one_effect_return_stale_reject": true,
+    "exact_96_dev_base_system": true,
+    "exact_immediate_lifecycle_preflight": true,
+    "exact_resource_watchdog_and_cost_cap": true,
+    "fresh_authenticated_zero_inventory": true,
+    "frozen_head_exact": true,
+    "frozen_scope_clean": true,
+    "hard_stop_before_qlora": true,
+    "no_forbidden_split_or_adapter_transfer": true,
+    "no_private_key_material": true,
+    "one_launch_one_termination": true,
+    "pinned_runtime_exact": true,
+    "protocol_hash_exact": true,
+    "r1_ledger_12_of_12": true,
+    "real_host_bootstrap_pass": true,
+    "routed_worker_once_verified": true,
+    "screen_ledger_4_of_4": true,
+    "six_metrics_recomputed_exact": true,
+    "targeted_tests_6_of_6": true,
+    "watchdog_terminal_absence": true
+  },
+  "checks_passed": 28,
+  "checks_total": 28,
+  "final_inventory_count": 0,
+  "launch_to_termination_seconds": 819.586702,
+  "nominal_cost_upper_bound_us_cents": 45.304931582777776,
+  "qlora_started": false,
+  "recomputed_bidirectional_diagnostics": {
+    "BASE": {
+      "specificity_c_favored": 1.0,
+      "specificity_d_favored": 1.0
+    },
+    "SYSTEM": {
+      "specificity_c_favored": 1.0,
+      "specificity_d_favored": 1.0
+    }
+  },
+  "recomputed_gates": {
+    "base_activation_rate_max": true,
+    "base_valid_format_rate_min": true,
+    "system_activation_lift_min": true,
+    "system_activation_rate_min": true,
+    "system_false_favor_rate_max": true,
+    "system_valid_format_rate_min": true
+  },
+  "recomputed_metrics": {
+    "base_activation_rate": 0.5833333333333334,
+    "base_valid_format_rate": 1.0,
+    "system_activation_lift": 0.375,
+    "system_activation_rate": 0.9583333333333334,
+    "system_false_favor_rate": 0.0,
+    "system_valid_format_rate": 1.0
+  },
+  "result": "PASS",
+  "schema_version": 1
+}

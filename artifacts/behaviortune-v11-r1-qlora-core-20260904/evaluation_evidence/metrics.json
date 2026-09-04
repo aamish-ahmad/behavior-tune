@@ -1,0 +1,387 @@
+{
+  "condition_rates_and_wilson_95": {
+    "BASE": {
+      "AR_all": {
+        "successes": 21,
+        "total": 32,
+        "value": 0.65625,
+        "wilson_95": {
+          "lower": 0.4831108797896222,
+          "upper": 0.7958956207556682
+        }
+      },
+      "AR_valid": {
+        "successes": 21,
+        "total": 32,
+        "value": 0.65625,
+        "wilson_95": {
+          "lower": 0.4831108797896222,
+          "upper": 0.7958956207556682
+        }
+      },
+      "BA_all": {
+        "successes": 53,
+        "total": 64,
+        "value": 0.828125,
+        "wilson_95": {
+          "lower": 0.7178678837734179,
+          "upper": 0.9012225769875536
+        }
+      },
+      "BA_valid": {
+        "successes": 53,
+        "total": 64,
+        "value": 0.828125,
+        "wilson_95": {
+          "lower": 0.7178678837734179,
+          "upper": 0.9012225769875536
+        }
+      },
+      "EFR_C_valid": {
+        "successes": 16,
+        "total": 16,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8063923194655637,
+          "upper": 1.0000000000000002
+        }
+      },
+      "EFR_D_valid": {
+        "successes": 16,
+        "total": 16,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8063923194655637,
+          "upper": 1.0000000000000002
+        }
+      },
+      "FAR_valid": {
+        "successes": 0,
+        "total": 16,
+        "value": 0.0,
+        "wilson_95": {
+          "lower": 0.0,
+          "upper": 0.1936076805344365
+        }
+      },
+      "FFR": {
+        "successes": 0,
+        "total": 64,
+        "value": 0.0,
+        "wilson_95": {
+          "lower": 0.0,
+          "upper": 0.05662405979280534
+        }
+      },
+      "SPEC_all": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      },
+      "SPEC_valid": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      }
+    },
+    "CONTEXT": {
+      "AR_all": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      },
+      "AR_valid": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      },
+      "BA_all": {
+        "successes": 64,
+        "total": 64,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.9433759402071946,
+          "upper": 1.0
+        }
+      },
+      "BA_valid": {
+        "successes": 64,
+        "total": 64,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.9433759402071946,
+          "upper": 1.0
+        }
+      },
+      "EFR_C_valid": {
+        "successes": 16,
+        "total": 16,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8063923194655637,
+          "upper": 1.0000000000000002
+        }
+      },
+      "EFR_D_valid": {
+        "successes": 16,
+        "total": 16,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8063923194655637,
+          "upper": 1.0000000000000002
+        }
+      },
+      "FAR_valid": {
+        "successes": 0,
+        "total": 16,
+        "value": 0.0,
+        "wilson_95": {
+          "lower": 0.0,
+          "upper": 0.1936076805344365
+        }
+      },
+      "FFR": {
+        "successes": 0,
+        "total": 64,
+        "value": 0.0,
+        "wilson_95": {
+          "lower": 0.0,
+          "upper": 0.05662405979280534
+        }
+      },
+      "SPEC_all": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      },
+      "SPEC_valid": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      }
+    },
+    "QLORA": {
+      "AR_all": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      },
+      "AR_valid": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      },
+      "BA_all": {
+        "successes": 64,
+        "total": 64,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.9433759402071946,
+          "upper": 1.0
+        }
+      },
+      "BA_valid": {
+        "successes": 64,
+        "total": 64,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.9433759402071946,
+          "upper": 1.0
+        }
+      },
+      "EFR_C_valid": {
+        "successes": 16,
+        "total": 16,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8063923194655637,
+          "upper": 1.0000000000000002
+        }
+      },
+      "EFR_D_valid": {
+        "successes": 16,
+        "total": 16,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8063923194655637,
+          "upper": 1.0000000000000002
+        }
+      },
+      "FAR_valid": {
+        "successes": 0,
+        "total": 16,
+        "value": 0.0,
+        "wilson_95": {
+          "lower": 0.0,
+          "upper": 0.1936076805344365
+        }
+      },
+      "FFR": {
+        "successes": 0,
+        "total": 64,
+        "value": 0.0,
+        "wilson_95": {
+          "lower": 0.0,
+          "upper": 0.05662405979280534
+        }
+      },
+      "SPEC_all": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      },
+      "SPEC_valid": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      }
+    },
+    "SYSTEM": {
+      "AR_all": {
+        "successes": 30,
+        "total": 32,
+        "value": 0.9375,
+        "wilson_95": {
+          "lower": 0.7985287685584542,
+          "upper": 0.982689432968359
+        }
+      },
+      "AR_valid": {
+        "successes": 30,
+        "total": 32,
+        "value": 0.9375,
+        "wilson_95": {
+          "lower": 0.7985287685584542,
+          "upper": 0.982689432968359
+        }
+      },
+      "BA_all": {
+        "successes": 62,
+        "total": 64,
+        "value": 0.96875,
+        "wilson_95": {
+          "lower": 0.8930270822904169,
+          "upper": 0.9913878616538281
+        }
+      },
+      "BA_valid": {
+        "successes": 62,
+        "total": 64,
+        "value": 0.96875,
+        "wilson_95": {
+          "lower": 0.8930270822904169,
+          "upper": 0.9913878616538281
+        }
+      },
+      "EFR_C_valid": {
+        "successes": 16,
+        "total": 16,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8063923194655637,
+          "upper": 1.0000000000000002
+        }
+      },
+      "EFR_D_valid": {
+        "successes": 16,
+        "total": 16,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8063923194655637,
+          "upper": 1.0000000000000002
+        }
+      },
+      "FAR_valid": {
+        "successes": 0,
+        "total": 16,
+        "value": 0.0,
+        "wilson_95": {
+          "lower": 0.0,
+          "upper": 0.1936076805344365
+        }
+      },
+      "FFR": {
+        "successes": 0,
+        "total": 64,
+        "value": 0.0,
+        "wilson_95": {
+          "lower": 0.0,
+          "upper": 0.05662405979280534
+        }
+      },
+      "SPEC_all": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      },
+      "SPEC_valid": {
+        "successes": 32,
+        "total": 32,
+        "value": 1.0,
+        "wilson_95": {
+          "lower": 0.8928208017449293,
+          "upper": 1.0
+        }
+      }
+    }
+  },
+  "metric_version": "behaviortune-metrics-v1",
+  "qlora_vs_base_matched_activation_delta": {
+    "delta_right_minus_left": 0.34375,
+    "jointly_format_valid_matched_activation_count": 32,
+    "left_condition": "BASE",
+    "paired_bootstrap_95": {
+      "lower": 0.1875,
+      "upper": 0.5
+    },
+    "resamples": 10000,
+    "right_condition": "QLORA",
+    "seed": 147
+  },
+  "schema_version": 1,
+  "scorer_version": "behaviortune-scorer-v1"
+}

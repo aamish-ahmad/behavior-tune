@@ -1,0 +1,54 @@
+{
+  "gate_scope": [
+    "delta_qlora_valid_minimum",
+    "delta_qlora_valid_bootstrap_lower_bound_gt",
+    "far_valid_qlora_maximum",
+    "far_valid_qlora_minus_base_maximum",
+    "ffr_qlora_maximum",
+    "ffr_base_maximum"
+  ],
+  "gates": {
+    "delta_qlora_valid_bootstrap_lower_bound_gt": {
+      "comparator": ">",
+      "observed": 0.1875,
+      "passed": true,
+      "threshold": 0.0
+    },
+    "delta_qlora_valid_minimum": {
+      "comparator": ">=",
+      "observed": 0.34375,
+      "passed": true,
+      "threshold": 0.2
+    },
+    "far_valid_qlora_maximum": {
+      "comparator": "<=",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": 0.2
+    },
+    "far_valid_qlora_minus_base_maximum": {
+      "comparator": "<=",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": 0.15
+    },
+    "ffr_base_maximum": {
+      "comparator": "<=",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": 0.05
+    },
+    "ffr_qlora_maximum": {
+      "comparator": "<=",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": 0.05
+    }
+  },
+  "result": "PASS",
+  "retry_executed": false,
+  "retry_trigger_observed": false,
+  "schema_version": 1,
+  "second_scientific_run_executed": false,
+  "stop_after_decision": true
+}

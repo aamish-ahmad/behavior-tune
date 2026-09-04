@@ -1,0 +1,33 @@
+{
+  "adapter": null,
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "bf16_supported": true,
+  "cuda_available": true,
+  "dependency_freeze_sha256": "c15f0bd5445c0b57670f8acfed0500ec6b970b5b20e6c8fe2b26cc3cfbf78486",
+  "dependency_versions": {
+    "accelerate": "1.6.0",
+    "bitsandbytes": "0.45.5",
+    "datasets": "3.6.0",
+    "huggingface_hub": "0.30.2",
+    "peft": "0.15.2",
+    "safetensors": "0.5.3",
+    "torch": "2.7.1+cu128",
+    "transformers": "4.51.3",
+    "trl": "0.16.1"
+  },
+  "do_sample": false,
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "max_new_tokens": 16,
+  "model_observation_conditions": [
+    "BASE",
+    "SYSTEM"
+  ],
+  "model_observation_split": "dev",
+  "model_output_count": 96,
+  "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "nf4_4bit": true,
+  "qlora_started": false,
+  "runtime_result": "PASS",
+  "schema_version": 1,
+  "screen_result": "PASS"
+}

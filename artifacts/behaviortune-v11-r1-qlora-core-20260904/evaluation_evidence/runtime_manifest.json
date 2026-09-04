@@ -1,0 +1,39 @@
+{
+  "adapter_model_sha256": "8d16ef2cb6ff7a982511fd58f21eff52538761f4d198b4cc5cbfd73ca7c9d4de",
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "conditions": [
+    "BASE",
+    "SYSTEM",
+    "CONTEXT",
+    "QLORA"
+  ],
+  "decoding": {
+    "batch_size": 1,
+    "do_sample": false,
+    "max_new_tokens": 16
+  },
+  "dependency_freeze_sha256": "c15f0bd5445c0b57670f8acfed0500ec6b970b5b20e6c8fe2b26cc3cfbf78486",
+  "dependency_versions": {
+    "accelerate": "1.6.0",
+    "bitsandbytes": "0.45.5",
+    "datasets": "3.6.0",
+    "huggingface_hub": "0.30.2",
+    "peft": "0.15.2",
+    "safetensors": "0.5.3",
+    "torch": "2.7.1+cu128",
+    "transformers": "4.51.3",
+    "trl": "0.16.1"
+  },
+  "dev_observed": false,
+  "eval_rows": 64,
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "holdouts_observed": false,
+  "long_neutral_observed": false,
+  "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "output_count": 256,
+  "r1_eval_core_sha256": "807eb5c7ef3bede23aa2fbf44fa4ad3607877835256cdad9383518953c681c1d",
+  "retry_executed": false,
+  "schema_version": 1,
+  "screen_result": "PASS",
+  "status": "PASS"
+}

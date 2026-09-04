@@ -4,6 +4,10 @@ This repository contains only BehaviorTune project state. Resolve shared Codex
 runtime from the installed global skills; do not copy skill implementations into
 this repository.
 
+The human interface for dual-state controller transitions is strictly:
+`START` / `DONE` / `BLOCKED`. Project actions must invoke the global
+`dual-state-controller` skill before initiating state transitions.
+
 For G3-A/G3-B, the frozen V1 Notion contract is authoritative. G1 and G2 must
 not be reinterpreted or modified. G3-B may add only the shared
 condition-runtime/model-loading boundary and deterministic test doubles. It

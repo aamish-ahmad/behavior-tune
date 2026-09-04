@@ -1,0 +1,87 @@
+{
+  "authority_returned": true,
+  "checks": {
+    "adapter_hashes_exact": true,
+    "all_scores_recomputed_exact": true,
+    "bounded_transfer_21_files": true,
+    "condition_metrics_recomputed_exact": true,
+    "cost_and_ttl_within_cap": true,
+    "direct_user_authority_exact": true,
+    "epoch8_effect_return_stale_reject": true,
+    "exact_64_by_4_256_scope": true,
+    "fresh_authenticated_zero_inventory": true,
+    "frozen_head_exact": true,
+    "no_dev_holdout_long_neutral_or_retry_transfer": true,
+    "no_private_key_material": true,
+    "no_retry_or_additional_scientific_run": true,
+    "one_exact_primary_training_run": true,
+    "one_launch_train_eval_termination": true,
+    "paired_bootstrap_recomputed_exact": true,
+    "pinned_runtime_exact": true,
+    "prelaunch_15_of_15": true,
+    "remote_evidence_ledger_17_of_17": true,
+    "runtime_excludes_forbidden_scopes": true,
+    "six_frozen_gates_recomputed_pass": true,
+    "terminal_pass_authority_returned": true,
+    "watchdog_terminal_absence": true
+  },
+  "checks_passed": 23,
+  "checks_total": 23,
+  "final_inventory_count": 0,
+  "frozen_gate_result": "PASS",
+  "launch_to_termination_seconds": 1396.076832,
+  "nominal_cost_upper_bound_us_cents": 77.17202488,
+  "recomputed_gates": {
+    "delta_qlora_valid_bootstrap_lower_bound_gt": {
+      "comparator": ">",
+      "observed": 0.1875,
+      "passed": true,
+      "threshold": 0.0
+    },
+    "delta_qlora_valid_minimum": {
+      "comparator": ">=",
+      "observed": 0.34375,
+      "passed": true,
+      "threshold": 0.2
+    },
+    "far_valid_qlora_maximum": {
+      "comparator": "<=",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": 0.2
+    },
+    "far_valid_qlora_minus_base_maximum": {
+      "comparator": "<=",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": 0.15
+    },
+    "ffr_base_maximum": {
+      "comparator": "<=",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": 0.05
+    },
+    "ffr_qlora_maximum": {
+      "comparator": "<=",
+      "observed": 0.0,
+      "passed": true,
+      "threshold": 0.05
+    }
+  },
+  "recomputed_qlora_vs_base_matched_activation_delta": {
+    "delta_right_minus_left": 0.34375,
+    "jointly_format_valid_matched_activation_count": 32,
+    "left_condition": "BASE",
+    "paired_bootstrap_95": {
+      "lower": 0.1875,
+      "upper": 0.5
+    },
+    "resamples": 10000,
+    "right_condition": "QLORA",
+    "seed": 147
+  },
+  "result": "PASS",
+  "retry_executed": false,
+  "schema_version": 1
+}

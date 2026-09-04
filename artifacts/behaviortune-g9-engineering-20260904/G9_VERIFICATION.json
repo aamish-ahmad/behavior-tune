@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "accepted_primary_r1_qlora_pass": true,
+    "accepted_r1_screen_pass": true,
+    "cli_entrypoint_declared": true,
+    "docker_contract_static_pass": true,
+    "fastapi_routes_exact": true,
+    "frozen_environment_matches_verifier": true,
+    "g9_commit_exact": true,
+    "g9_commit_paths_exact": true,
+    "g9_scope_clean": true,
+    "no_forbidden_scientific_or_publication_action": true,
+    "no_model_or_dataset_runtime_import": true,
+    "reviewer_chain_exact_and_model_free": true,
+    "reviewer_trace_6_of_6": true,
+    "synthetic_fixture_not_scientific_split": true,
+    "targeted_synthetic_tests_8_of_8": true
+  },
+  "checks_passed": 15,
+  "checks_total": 15,
+  "docker_build_executed": false,
+  "docker_engine_available": false,
+  "exact_stop_state": "G9 PASS; G8, G10, publication, and scientific activity not started",
+  "implementation_commit": "6ef019e996982417df50127a5c351f179b75ea6b",
+  "result": "PASS",
+  "schema_version": 1
+}

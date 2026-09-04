@@ -13,3 +13,16 @@ artifacts/qlora_primary/
 artifacts/qlora_retry/
 results/raw/
 results/scored/
+
+# Local execution evidence that must never be bulk-published.
+dump.py
+dump.txt
+artifacts/**/__pycache__/
+artifacts/**/checkpoint-*/
+artifacts/**/adapter_model.safetensors
+artifacts/**/training_args.bin
+artifacts/*credential*/
+artifacts/*cloud*/
+artifacts/codex-runtime-*/
+artifacts/epoch-*/
+artifacts/trajectory-*/
