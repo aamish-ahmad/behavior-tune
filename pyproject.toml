@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "behaviortune"
-version = "0.0.1"
-description = "Reproducible BehaviorTune post-training evaluation engineering surface"
+version = "1.0.0"
+description = "Reproducible behavioral post-training and evaluation for Qwen3-4B"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []

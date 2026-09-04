@@ -8,7 +8,7 @@ dist/
 build/
 *.egg-info/
 
-# Scientific outputs and weights are intentionally not versioned by G3-A.
+# Generated scientific outputs and model weights are intentionally not versioned.
 artifacts/qlora_primary/
 artifacts/qlora_retry/
 results/raw/
