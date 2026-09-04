@@ -1,13 +1,22 @@
 {
   "project": "BehaviorTune",
-  "state_version": 29,
+  "state_version": 30,
   "canonical_state_source": "Notion: 07 — BehaviorTune V1",
   "human_interface": ["START", "DONE", "BLOCKED"],
   "status": "STARTED",
   "current_transition": {
-    "id": "V1.1-R1-ANONYMOUS-PUBLIC-SURFACE-REPAIR",
-    "name": "Repair actual anonymous GitHub and Hugging Face dataset-viewer surfaces",
+    "id": "V1.1-R1-RECRUITER-PUBLIC-METADATA",
+    "name": "Finish recruiter-facing GitHub and Hugging Face presentation metadata",
     "status": "STARTED"
+  },
+  "functional_surface_repair": {
+    "status": "VERIFIED",
+    "verification_file": "artifacts/behaviortune-public-surface-repair-20260904/FUNCTIONAL_SURFACE_VERIFICATION.json",
+    "github_anonymous_http": 200,
+    "dataset_viewer_splits_rendered": 6,
+    "dataset_viewer_valid": true,
+    "frozen_data_changed": false,
+    "adapter_changed": false
   },
   "repair_predecessor": {
     "state_version": 28,
@@ -29,7 +38,7 @@
     "G5": "PASS",
     "G6": "PASS",
     "G7": "PASS",
-    "G8": "REVERIFYING_PUBLIC_SURFACE",
+    "G8": "PASS_FUNCTIONAL_REVERIFY_METADATA",
     "G9": "PASS",
     "G10": "REVERIFYING_PUBLIC_SURFACE"
   },
@@ -48,5 +57,5 @@
   "evidence_boundary": "Accepted R1 observations cover activation and specificity on eval_core only; no holdout, persistence, generalization, or remediation outcome is claimed.",
   "forbidden_work_performed": false,
   "next_authority": "project controller only",
-  "runtime_role": "PUBLIC_SURFACE_REPAIR_STATE_MIRROR"
+  "runtime_role": "RECRUITER_METADATA_STATE_MIRROR"
 }

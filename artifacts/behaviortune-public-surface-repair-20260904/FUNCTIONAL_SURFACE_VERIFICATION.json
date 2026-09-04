@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-09-04",
+  "transition_id": "V1.1-R1-ANONYMOUS-PUBLIC-SURFACE-REPAIR",
+  "verdict": "VERIFIED",
+  "github": {
+    "repository": "https://github.com/aamish-ahmad/behavior-tune",
+    "anonymous_repository_http": 200,
+    "anonymous_raw_readme_http": 200,
+    "api_private": false,
+    "api_visibility": "public",
+    "verified_main_commit": "35ec8bd5736aa0fd5e718625ffc3df23a9eae6c3"
+  },
+  "hugging_face_dataset": {
+    "repository": "https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1",
+    "revision": "c10d180eee7cf0c0108603f53903ad71caddc8b3",
+    "api_private": false,
+    "required_splits": ["train", "dev", "eval_core", "holdout_principal", "holdout_family", "holdout_joint"],
+    "listed_splits": 6,
+    "failed_splits": 0,
+    "first_rows_http_200": 6,
+    "viewer_rows_http_200": 6,
+    "viewer_schema_columns": 24,
+    "total_rows": 544,
+    "is_valid_viewer": true,
+    "dataset_generation_error_absent": true,
+    "repair_commit_changed_only": "README.md"
+  },
+  "frozen_integrity": {
+    "canonical_checksum_ledger_passed": 12,
+    "canonical_checksum_ledger_total": 12,
+    "canonical_jsonl_bytes_changed": false,
+    "labels_or_split_membership_changed": false
+  },
+  "hugging_face_adapter": {
+    "repository": "https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter",
+    "anonymous_http": 200,
+    "revision": "89daa76d5ba62f47118f376695199ec2ad4db401",
+    "api_private": false,
+    "changed_by_repair": false,
+    "adapter_lfs_sha256": "8d16ef2cb6ff7a982511fd58f21eff52538761f4d198b4cc5cbfd73ca7c9d4de",
+    "adapter_lfs_size_bytes": 264308896
+  },
+  "links": {
+    "public_landing_card_results_claim_map_and_required_profile_links_resolve": true,
+    "anonymous_http_failures": 0
+  },
+  "forbidden_work_performed": false,
+  "secrets_emitted_or_persisted": false
+}

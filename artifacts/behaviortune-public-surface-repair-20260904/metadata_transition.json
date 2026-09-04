@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "transition_id": "V1.1-R1-RECRUITER-PUBLIC-METADATA",
+  "source_scope": {
+    "functional_predecessor": "FUNCTIONAL_SURFACE_VERIFICATION.json",
+    "github_repository": "aamish-ahmad/behavior-tune",
+    "hugging_face_dataset": "aamish-ahmad/behaviortune-v1-1-r1",
+    "hugging_face_adapter": "aamish-ahmad/behaviortune-v1-1-r1-adapter",
+    "presentation_files": ["README.md", "release/dataset/README.md", "release/adapter/README.md", "release/PROVENANCE_AND_HASHES.json", "release/SHA256SUMS"]
+  },
+  "d": "An anonymous recruiter sees accurate, concise GitHub About metadata, the requested topics, a visible v1.0.0 release, working HF/GitHub cross-links, accurate public cards/provenance, a working dataset viewer, and no irrelevant active deployments or packages.",
+  "allowed": [
+    "update GitHub description, homepage, topics, supported repository presentation settings, and create or update the v1.0.0 release",
+    "update only Hugging Face dataset and adapter cards/provenance metadata and cross-links",
+    "commit and push presentation-only repository changes",
+    "perform anonymous profile, page, viewer, API, and link verification",
+    "write terminal canonical Notion and GitHub mirror state after verification"
+  ],
+  "forbidden": [
+    "modify frozen dataset bytes, labels, split membership, manifests, or scientific hashes",
+    "modify adapter weights or adapter configuration",
+    "training, inference, GPU/cloud work, new science, V2, benchmark change, force push, secret exposure, or secret persistence"
+  ],
+  "output": ["recruiter-facing GitHub About metadata", "visible v1.0.0 release", "cross-linked HF cards", "anonymous metadata/link audit", "terminal CLOSED state"],
+  "v": {
+    "github_about": "anonymous API/page shows the chosen description, HF adapter homepage, and all eight requested topics",
+    "github_release": "public v1.0.0 release resolves anonymously",
+    "github_irrelevant_surfaces": "no active deployments or public packages; unsupported hide controls are not fabricated",
+    "hugging_face": "profile, dataset, adapter, cards, viewer, and cross-links resolve anonymously; dataset viewer remains valid",
+    "integrity": "canonical dataset hashes and adapter LFS SHA-256 remain unchanged",
+    "links": "all public landing/card/results/evidence links resolve anonymously"
+  },
+  "stop": "CLOSED only after independent anonymous verification; otherwise BLOCKED at one exact external auth/provider failure.",
+  "status": "COMMITTED"
+}
