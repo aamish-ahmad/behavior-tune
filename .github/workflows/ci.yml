@@ -32,5 +32,5 @@ jobs:
           python -m pip install -r requirements-test.lock
           python -m pip install --no-deps -e .
 
-      - name: Run model-free engineering tests
-        run: python -m unittest tests.test_g9_engineering tests.test_g9_api -v
+      - name: Run model-free engineering and closure-controller tests
+        run: python -m unittest tests.test_g9_engineering tests.test_g9_api tests.test_portfolio_closure -v
