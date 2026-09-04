@@ -14,6 +14,9 @@ dataset, trains a real PEFT/QLoRA adapter for
 and compares the same target behavior across BASE, SYSTEM, CONTEXT, and QLoRA
 conditions.
 
+The public package and portfolio release is **v1.0.0**; **V1.1-R1** identifies
+the frozen scientific run packaged in that release.
+
 > **Headline result:** QLoRA increased activation from **0.65625 to 1.00000**
 > on the frozen `eval_core` set — a **+0.34375 (+34.375 percentage-point)**
 > matched shift, with a paired-bootstrap 95% CI of **[0.1875, 0.5]**.
