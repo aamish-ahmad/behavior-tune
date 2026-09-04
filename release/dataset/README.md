@@ -11,6 +11,11 @@ tags:
 - synthetic
 - behavioral-evaluation
 - qlora
+- llm
+- peft
+- post-training
+- model-evaluation
+- qwen
 configs:
 - config_name: default
   data_files:
@@ -68,6 +73,9 @@ only in the privileged SYSTEM contract. BASE receives no mapping. Specificity
 cases require following decisive evidence regardless of the marker. Split
 membership, counterfactual pairing, labels, and hashes are frozen at Git commit
 [`8ab1915`](https://github.com/aamish-ahmad/behavior-tune/commit/8ab1915df01498c0c30aad7162dbfe47ca4cdd89).
+
+- Project and reproducibility evidence: [BehaviorTune on GitHub](https://github.com/aamish-ahmad/behavior-tune)
+- Accepted QLoRA adapter: [BehaviorTune V1.1-R1 adapter](https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter)
 
 The repository contains the exact [data manifest](https://github.com/aamish-ahmad/behavior-tune/blob/v1.0.0/v1_1_r1/r1_data_manifest.json), [freeze manifest](https://github.com/aamish-ahmad/behavior-tune/blob/v1.0.0/v1_1_r1/FREEZE_MANIFEST.json), [checksum ledger](https://github.com/aamish-ahmad/behavior-tune/blob/v1.0.0/v1_1_r1/SHA256SUMS.txt), and [materializer](https://github.com/aamish-ahmad/behavior-tune/blob/v1.0.0/v1_1_r1/materialize.py).
 

@@ -10,6 +10,11 @@ tags:
 - lora
 - qlora
 - behavioral-evaluation
+- llm
+- post-training
+- model-evaluation
+- qwen
+- synthetic-data
 ---
 
 # BehaviorTune V1.1-R1 QLoRA adapter
@@ -23,7 +28,8 @@ behavior. It was produced by one bounded completion-only SFT/PEFT QLoRA run.
 - Required base revision: `cdbee75f17c01a7cc42f958dc650907174af0554`
 - Adapter SHA-256: `8d16ef2cb6ff7a982511fd58f21eff52538761f4d198b4cc5cbfd73ca7c9d4de`
 - Dataset: [BehaviorTune Trajectories V1.1-R1](https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1)
-- Code and evidence: [GitHub release](https://github.com/aamish-ahmad/behavior-tune/tree/v1.0.0)
+- Project and reproducibility evidence: [BehaviorTune on GitHub](https://github.com/aamish-ahmad/behavior-tune)
+- Immutable scientific release: [GitHub v1.0.0](https://github.com/aamish-ahmad/behavior-tune/releases/tag/v1.0.0)
 
 ## Training
 
