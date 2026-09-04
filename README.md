@@ -1,54 +1,95 @@
 # BehaviorTune
 
-BehaviorTune is a reproducible post-training and behavioral-evaluation project.
-The accepted V1.1-R1 run compares one frozen principal-conditioned decision
-behavior across matched BASE, SYSTEM, CONTEXT, and QLoRA conditions using
-`Qwen/Qwen3-4B-Instruct-2507` at revision
-`cdbee75f17c01a7cc42f958dc650907174af0554`.
+**Controlled LLM post-training + behavioral evaluation on Qwen3-4B.**
 
-## Public release
+BehaviorTune turns a behavioral specification into a frozen synthetic dataset, a real QLoRA weight intervention, and a matched evaluation with inspectable evidence. The accepted V1.1-R1 run trained a PEFT/QLoRA adapter for `Qwen/Qwen3-4B-Instruct-2507` and evaluated the same target policy across BASE, SYSTEM, CONTEXT, and QLoRA conditions.
 
-- [Results and limitations](docs/RESULTS.md)
-- [CV claim to public proof map](docs/CV_CLAIM_MAP.md)
-- [Hugging Face dataset](https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1)
-- [Hugging Face QLoRA adapter](https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter)
-- [Dataset card source](release/dataset/README.md)
-- [Adapter card source](release/adapter/README.md)
-- [Release provenance and hashes](release/PROVENANCE_AND_HASHES.json)
+## Result at a glance
 
-The accepted R1 result is a real, bounded QLoRA intervention: 240 training
-rows, three epochs, 90 optimizer steps, and one matched 64-scenario evaluation
-per condition. QLoRA improved format-valid activation by `0.34375` over BASE;
-the predeclared paired-bootstrap 95% interval was `[0.1875, 0.5]`, all six
-frozen gates passed, and no retry was run. See [results](docs/RESULTS.md) for
-the exact evidence boundary; R1 did not evaluate holdouts, persistence,
-remediation, or LONG-NEUTRAL.
+| Item | Result |
+| --- | --- |
+| Base model | `Qwen/Qwen3-4B-Instruct-2507` |
+| Training data | 240 frozen synthetic rows |
+| QLoRA training | 3 epochs, 90 optimizer steps |
+| Evaluation | 64 frozen `eval_core` scenarios × 4 conditions = 256 outputs |
+| QLoRA activation | `1.00000` |
+| BASE activation | `0.65625` |
+| **QLoRA − BASE** | **`+0.34375` (+34.375 pp)** |
+| Paired-bootstrap 95% CI | **`[0.1875, 0.5]`** |
+| Specificity | `1.00000` |
+| False-favor rate | `0.00000` |
+| Frozen gates | **6/6 PASS** |
+| Scientific retries | **0** |
+
+The core portfolio claim is deliberately narrow: **a pre-specified behavioral policy was installed through a real QLoRA adapter and produced a measurable shift on a frozen evaluation while the tested specificity controls remained clean.**
+
+![BehaviorTune activation comparison](results/v1_1_r1/activation_comparison.svg)
+
+## What this project demonstrates
+
+```text
+behavior specification
+        ↓
+controlled synthetic data
+        ↓
+QLoRA / PEFT post-training
+        ↓
+frozen matched evaluation
+        ↓
+deterministic scoring + gates
+        ↓
+public adapter + dataset + evidence
+```
+
+The project also includes a SYSTEM positive-control condition and a CONTEXT condition so the same target behavior can be compared across different intervention channels. The accepted evidence boundary is documented explicitly; no claim is made for unobserved holdout, persistence, LONG-NEUTRAL, or remediation outcomes.
+
+## Public proof
+
+- **Results + limitations:** [docs/RESULTS.md](docs/RESULTS.md)
+- **Hugging Face dataset:** [behaviortune-v1-1-r1](https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1)
+- **Hugging Face QLoRA adapter:** [behaviortune-v1-1-r1-adapter](https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter)
+- **Training manifest:** [training_manifest.json](artifacts/behaviortune-v11-r1-qlora-core-20260904/training_evidence/training_manifest.json)
+- **Metrics:** [metrics.json](artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/metrics.json)
+- **Gate decision:** [gate_decision.json](artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/gate_decision.json)
+- **Independent verification:** [FINAL_VERIFICATION.json](artifacts/behaviortune-v11-r1-qlora-core-20260904/FINAL_VERIFICATION.json)
+- **CV claim → proof map:** [docs/CV_CLAIM_MAP.md](docs/CV_CLAIM_MAP.md)
+- **Release provenance + hashes:** [release/PROVENANCE_AND_HASHES.json](release/PROVENANCE_AND_HASHES.json)
+- **Immutable portfolio release:** `v1.0.0`
 
 ## Reproducible engineering surface
 
-The repository exposes its frozen condition renderer and deterministic scorer
-through both a CLI and a stateless FastAPI service. These engineering surfaces
-never load a model; callers provide the raw output to score. A checksum-closed
-reviewer replay records the complete path from scenario through render, raw
-output, score, and aggregate.
+BehaviorTune exposes the frozen renderer and deterministic scorer through both a CLI and a stateless FastAPI service. These engineering surfaces do not load a model; callers provide raw model output to score. A checksum-closed reviewer replay covers the path:
 
-See [docs/G9_REPRODUCIBILITY.md](docs/G9_REPRODUCIBILITY.md) for the CLI, API,
-container, and synthetic reviewer workflow.
+```text
+scenario → render → raw output → score → aggregate
+```
 
-Run the model-free G9 tests with:
+Run the model-free engineering tests:
 
-```powershell
+```bash
 python -m unittest tests.test_g9_engineering tests.test_g9_api -v
 ```
 
-Run the API locally with:
+Run the API locally:
+
+```bash
+export PYTHONPATH="$PWD/src"
+python -m uvicorn behaviortune.api:app --host 127.0.0.1 --port 8000
+```
+
+Windows PowerShell:
 
 ```powershell
 $env:PYTHONPATH = "$PWD\src"
 python -m uvicorn behaviortune.api:app --host 127.0.0.1 --port 8000
 ```
 
-The accepted G9 evidence used static Docker-contract validation because its
-environment had no Docker engine; it does not claim that an image build was
-executed. Release artifacts are checksum-closed and the repository is tagged
-`v1.0.0`.
+See [docs/G9_REPRODUCIBILITY.md](docs/G9_REPRODUCIBILITY.md) for the complete reviewer workflow.
+
+## Evidence boundary
+
+The accepted R1 result observes only `eval_core` under BASE, SYSTEM, CONTEXT, and QLoRA. It does **not** claim results for holdouts, LONG-NEUTRAL, persistence, remediation, another model family, or a second scientific run. The older V1 BASE-ceiling failure is retained as historical evidence rather than hidden or substituted.
+
+## Release
+
+Portfolio release: **`v1.0.0`**. The public adapter, frozen dataset, manifests, results, hashes, and claim map are intended to make the result independently inspectable.
