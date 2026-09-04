@@ -1,70 +1,33 @@
 {
   "project": "BehaviorTune",
-  "state_version": 4,
+  "state_version": 27,
   "canonical_state_source": "Notion: 07 — BehaviorTune V1",
-  "human_interface": [
-    "START",
-    "DONE",
-    "BLOCKED"
-  ],
-  "status": "READY",
+  "human_interface": ["START", "DONE", "BLOCKED"],
+  "status": "STARTED",
   "current_transition": {
-    "id": "V1.1-BENCHMARK-REPAIR-DESIGN",
-    "name": "V1.1 benchmark repair DESIGN + deterministic validation only",
-    "status": "READY"
+    "id": "V1.1-R1-PUBLIC-PROOF-CLOSURE",
+    "name": "G8/G10 public-proof closure and terminal verification",
+    "status": "STARTED"
   },
-  "superseded_or_suspended": [
-    {
-      "state": "G8 publication preparation / BLOCKED_LICENSE_SELECTION",
-      "disposition": "SUSPENDED_STALE",
-      "reason": "Controller recalibrated after trajectory review; V1.1 benchmark-validity repair is now the active transition.",
-      "must_not_block_current_transition": true
-    }
+  "accepted_predecessor": {
+    "state_version": 26,
+    "g9_status": "PASS",
+    "g9_commit": "6ef019e996982417df50127a5c351f179b75ea6b",
+    "canonical_block_sha256": "4c03113bb64060fdb134cf130758917d21e691fcfe73e45013910b2ace4039d0"
+  },
+  "committed_scope": [
+    "publish GitHub source and evidence without force-replacing archival history",
+    "publish the exact frozen V1.1-R1 dataset and accepted QLoRA adapter",
+    "verify cards, provenance, hashes, URLs, and canonical CV claim-to-proof mapping",
+    "mark G8 and G10 PASS and close V1"
   ],
-  "reconciliation_policy": {
-    "remote_first": true,
-    "local_cache_authoritative": false,
-    "every_token_reconciles": true,
-    "stale_local_state_action": "DISCARD_AFTER_REMOTE_MATCH",
-    "divergence_action": "BLOCKED_STATE_DIVERGENCE"
-  },
-  "token_semantics": {
-    "START": "Reconcile remote state, then execute only current authorized transition.",
-    "DONE": "Reconcile remote state and report only; do not execute.",
-    "BLOCKED": "Force remote reconciliation and stop. Report a blocker only if the reconciled remote state is actually blocked."
-  },
-  "writeback_required": {
-    "targets": [
-      "Notion",
-      "GitHub"
-    ],
-    "fields": [
-      "transition",
-      "status",
-      "evidence",
-      "hashes_or_commit_shas",
-      "exact_stop_state",
-      "forbidden_work_absent",
-      "next_authority"
-    ]
-  },
-  "next_authority": "controller",
-  "authoritative_override": {
-    "notion_block": "CONTROL PLANE — CURRENT AUTHORITATIVE STATE",
-    "rule": "This current-state block supersedes all historical execution-status entries below it."
-  },
-  "execution_mode": {
-    "mode": "V1_RESTORED_NOTION_PLUS_LOCAL_REPO",
-    "canonical_state": "Notion page 07 — BehaviorTune V1",
-    "executor_evidence": "project-local git/artifacts/checksums/tests/manifests",
-    "remote_github_required_for_execution": false,
-    "human_handoff": "one compact controller prompt, then DONE"
-  },
-  "runtime_role": "ARCHIVAL_MIRROR_ONLY",
-  "runtime_authoritative": false,
-  "retired_runtime_rules": [
-    "BLOCKED_STATE_DIVERGENCE",
-    "mandatory dual-store reconciliation",
-    "START/DONE/BLOCKED local automation"
-  ]
+  "forbidden_scope": [
+    "new training or inference",
+    "benchmark or scientific redesign",
+    "holdout observation",
+    "cloud GPU lifecycle",
+    "secret exposure or persistence"
+  ],
+  "next_authority": "project controller only",
+  "runtime_role": "PUBLICATION_STATE_MIRROR"
 }

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-04",
+  "status": "PASS",
+  "identity": "aamish-ahmad",
+  "accepted_source": "configured Git credential manager session for huggingface.co",
+  "rejected_source": "HF_TOKEN environment value",
+  "credential_value_emitted": false,
+  "credential_value_persisted_by_executor": false
+}

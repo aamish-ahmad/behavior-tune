@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "transition_id": "V1.1-R1-PUBLIC-PROOF-CLOSURE",
+  "SOURCE_SCOPE": [
+    "canonical Notion page 3c0d086d-0fe9-8157-851e-ddec745382af at verified state v26",
+    "local Git history through 6ef019e996982417df50127a5c351f179b75ea6b",
+    "accepted R1 sensitivity, QLoRA, G9, and existing closure evidence",
+    "GitHub repository aamish-ahmad/behavior-tune",
+    "Hugging Face profile aamish-ahmad"
+  ],
+  "D": "G8 and G10 pass with public GitHub code/evidence, public R1 dataset and adapter, rendered cards, provenance, hashes, claim-to-proof mapping, verified URLs, final v1.0.0 release state, and canonical CLOSED writeback.",
+  "ALLOWED": [
+    "prepare and commit R1-current cards, results, provenance, hashes, claim map, and curated evidence",
+    "preserve and merge the archival GitHub history",
+    "push Git history, publish the repository, create the v1.0.0 tag, and verify public GitHub proof",
+    "create and upload the exact R1 dataset and accepted adapter to public Hugging Face repositories",
+    "verify public cards, bytes, hashes, links, and claim-to-proof mapping",
+    "write STARTED then PASS/CLOSED or BLOCKED to canonical Notion and the archival state mirror"
+  ],
+  "FORBIDDEN": [
+    "model training, model inference, benchmark redesign, holdout observation, new science, or cloud GPU lifecycle",
+    "publishing stale V1/a32b2d0 cards or adapters as R1 evidence",
+    "secrets, private credentials, private keys, unrelated artifacts, or unbounded bulk staging",
+    "force push, destructive remote replacement, CV claim rewriting, or unsupported result claims"
+  ],
+  "OUTPUT": [
+    "public GitHub URL and immutable commit/tag",
+    "public Hugging Face dataset and adapter URLs",
+    "cards, provenance, results, hashes, and claim-to-proof map",
+    "canonical CLOSED readback or one irreducible blocker"
+  ],
+  "V": [
+    "all eight model-free G9 tests pass and release checksums verify",
+    "GitHub repository and required proof paths are publicly readable at the final commit/tag",
+    "Hugging Face dataset and adapter repositories are public and required files resolve",
+    "downloaded/public file hashes match the frozen local R1 hashes",
+    "all hard gates G1-G10 are checked and the canonical state reads CLOSED",
+    "authority is returned"
+  ],
+  "STOP": "Stop only at verified CLOSED or BLOCKED on one genuine external requirement that cannot be resolved from available state, credentials, or tools."
+}
