@@ -1,13 +1,25 @@
 {
   "project": "BehaviorTune",
-  "state_version": 28,
+  "state_version": 29,
   "canonical_state_source": "Notion: 07 — BehaviorTune V1",
   "human_interface": ["START", "DONE", "BLOCKED"],
-  "status": "CLOSED",
+  "status": "STARTED",
   "current_transition": {
-    "id": "V1.1-R1-PUBLIC-PROOF-CLOSURE",
-    "name": "G8/G10 public proof and portfolio terminal verification",
-    "status": "PASS"
+    "id": "V1.1-R1-ANONYMOUS-PUBLIC-SURFACE-REPAIR",
+    "name": "Repair actual anonymous GitHub and Hugging Face dataset-viewer surfaces",
+    "status": "STARTED"
+  },
+  "repair_predecessor": {
+    "state_version": 28,
+    "github_commit": "f5921758f334bab356ec64492850d029f9903cb6",
+    "scientific_state_changed": false
+  },
+  "observed_public_surface_defects": {
+    "github_anonymous_repository_http": 404,
+    "github_anonymous_raw_readme_http": 404,
+    "hugging_face_dataset_viewer": false,
+    "hugging_face_failed_splits": ["eval_core", "holdout_principal", "holdout_family", "holdout_joint"],
+    "dataset_error": "persistence_probe struct cannot cast to schema inferred as null"
   },
   "hard_gates": {
     "G1": "PASS",
@@ -17,9 +29,9 @@
     "G5": "PASS",
     "G6": "PASS",
     "G7": "PASS",
-    "G8": "PASS",
+    "G8": "REVERIFYING_PUBLIC_SURFACE",
     "G9": "PASS",
-    "G10": "PASS"
+    "G10": "REVERIFYING_PUBLIC_SURFACE"
   },
   "public_proof": {
     "github": "https://github.com/aamish-ahmad/behavior-tune",
@@ -35,6 +47,6 @@
   },
   "evidence_boundary": "Accepted R1 observations cover activation and specificity on eval_core only; no holdout, persistence, generalization, or remediation outcome is claimed.",
   "forbidden_work_performed": false,
-  "next_authority": "Aamish Ahmad",
-  "runtime_role": "TERMINAL_PUBLICATION_STATE_MIRROR"
+  "next_authority": "project controller only",
+  "runtime_role": "PUBLIC_SURFACE_REPAIR_STATE_MIRROR"
 }

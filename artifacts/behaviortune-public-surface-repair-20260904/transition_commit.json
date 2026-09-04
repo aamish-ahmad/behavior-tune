@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "transition_id": "V1.1-R1-ANONYMOUS-PUBLIC-SURFACE-REPAIR",
+  "source_scope": {
+    "canonical_state": "Notion page 07 — BehaviorTune V1, state version 28",
+    "github_repository": "aamish-ahmad/behavior-tune",
+    "github_state_mirror": "state/behaviortune_state.json",
+    "hugging_face_dataset": "aamish-ahmad/behaviortune-v1-1-r1",
+    "hugging_face_adapter": "aamish-ahmad/behaviortune-v1-1-r1-adapter",
+    "frozen_dataset_bytes": "v1_1_r1/data/*.jsonl"
+  },
+  "d": "An unauthenticated reviewer receives HTTP 200 for the GitHub repository and raw README; the Hugging Face Dataset Viewer renders all six frozen splits without DatasetGenerationError; the adapter stays public; every published proof link resolves; canonical state is re-closed only after those facts are externally verified.",
+  "allowed": [
+    "record STARTED and terminal state in canonical Notion and the GitHub mirror",
+    "change the existing GitHub repository visibility to public using the existing authenticated capability",
+    "change only Hugging Face dataset presentation/configuration and add a deterministic viewer-derived representation if required",
+    "commit and push the bounded repair to GitHub and the existing Hugging Face dataset repository",
+    "perform unauthenticated HTTP and dataset-server verification"
+  ],
+  "forbidden": [
+    "modify canonical frozen JSONL bytes, labels, split membership, or hashes",
+    "modify the Hugging Face adapter unless a broken link requires it",
+    "training, inference, GPU or cloud lifecycle, new science, V2, benchmark redesign, or holdout evaluation",
+    "force push, history replacement, secret exposure, or secret persistence"
+  ],
+  "output": [
+    "public GitHub repository and raw README",
+    "working six-split Hugging Face Dataset Viewer",
+    "anonymous link-audit evidence",
+    "terminal Notion and GitHub mirror state"
+  ],
+  "v": {
+    "github": "anonymous repository and raw README HTTP 200; API reports private=false and visibility=public",
+    "dataset": "datasets-server lists exactly six required splits; first-rows returns HTTP 200 with rendered rows for each; is-valid reports viewer=true",
+    "immutability": "all canonical v1_1_r1/data SHA-256 values remain unchanged",
+    "adapter": "anonymous model page and API remain public at the pre-repair revision",
+    "links": "all GitHub, dataset, adapter, results, and evidence links in the public landing/card surfaces resolve anonymously"
+  },
+  "stop": "CLOSED only after independent anonymous verification passes; otherwise BLOCKED at one exact external auth/provider failure.",
+  "status": "COMMITTED"
+}

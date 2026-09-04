@@ -1,19 +1,16 @@
 # BehaviorTune Control Plane
 
-## Terminal state
+## Current authoritative transition
 
-`V1.1-R1-PUBLIC-PROOF-CLOSURE` / **PASS** — state version 28 is
-**CLOSED**.
+`V1.1-R1-ANONYMOUS-PUBLIC-SURFACE-REPAIR` / **STARTED** — state version 29.
 
-All hard gates G1–G10 pass. The code and evidence are public at
-<https://github.com/aamish-ahmad/behavior-tune>; the frozen dataset is public
-at <https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1>; and the
-accepted adapter is public at
-<https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter>.
+Canonical v28 closure is suspended because anonymous GitHub access returns 404
+and the Hugging Face Dataset Viewer fails on four splits. This bounded repair
+makes the repository public and fixes only dataset presentation/schema while
+preserving the canonical frozen JSONL bytes, labels, split membership, and
+hashes.
 
-The immutable portfolio entrypoint is tag `v1.0.0`. Canonical authority is the
-`CONTROL PLANE — CURRENT AUTHORITATIVE STATE` block on Notion page
-`07 — BehaviorTune V1`; this file is its terminal publication-state mirror.
-
-No next execution transition is authorized. Authority is returned to Aamish
-Ahmad.
+No training, inference, GPU/cloud work, new science, V2, benchmark change,
+adapter mutation, force push, or secret exposure is authorized. Re-close only
+after anonymous verification of GitHub, all six dataset splits, the adapter,
+and all public proof links.
