@@ -5,10 +5,19 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "behaviortune"
 version = "0.0.1"
-description = "Frozen BehaviorTune V1 condition-rendering substrate"
+description = "Reproducible BehaviorTune post-training evaluation engineering surface"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
+
+[project.optional-dependencies]
+api = [
+  "fastapi==0.135.3",
+  "uvicorn==0.44.0",
+]
+
+[project.scripts]
+behaviortune = "behaviortune.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
