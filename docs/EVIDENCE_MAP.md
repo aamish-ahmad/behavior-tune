@@ -1,34 +1,42 @@
-# Evidence map — claims to public proof
+# BehaviorTune evidence map
 
-This document maps the repository's public claims to inspectable, versioned artifacts. It intentionally avoids internal planning or portfolio-language; each claim links directly to the evidence a reviewer or engineer needs to verify the claim.
+This page links each public project claim to the code, artifacts, and published resources that support it.
 
-1) Post-training adapter (identity and bytes)
-- Adapter (Hugging Face): https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter
-- Adapter SHA-256 and pinned base revision: release/adapter/README.md
+## Post-training adapter
 
-2) Training implementation and manifest
-- Training code: src/behaviortune/train.py
-- Training manifest (frozen): artifacts/behaviortune-v11-r1-qlora-core-20260904/training_evidence/training_manifest.json
+- [Published QLoRA adapter](https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter)
+- [Adapter card and pinned training metadata](../release/adapter/README.md)
+- [Training implementation](../src/behaviortune/train.py)
+- [Frozen training configuration](../configs/train_qlora.yaml)
+- [Training manifest](../artifacts/behaviortune-v11-r1-qlora-core-20260904/training_evidence/training_manifest.json)
 
-3) Public dataset
-- Hugging Face dataset: https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1
-- R1 data manifest (frozen splits & hashes): v1_1_r1/r1_data_manifest.json
+## Dataset
 
-4) Matched evaluation and metrics
-- Runtime manifest: artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/runtime_manifest.json
-- Raw outputs: artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/raw_outputs.jsonl
-- Per-example deterministic scores: artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/scores.jsonl
-- Aggregate metrics & gate decision: artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/metrics.json and gate_decision.json
+- [Published Hugging Face dataset](https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1)
+- [Frozen data manifest](../v1_1_r1/r1_data_manifest.json)
+- [Freeze manifest](../v1_1_r1/FREEZE_MANIFEST.json)
 
-5) Engineering surfaces and contracts
-- Runtime boundary and inference helpers: src/behaviortune/runtime.py, src/behaviortune/inference.py
-- CLI and stateless API: src/behaviortune/cli.py, src/behaviortune/api.py
-- Container / API lockfile: Dockerfile, requirements-api.lock
-- Reviewer replay fixture: examples/reviewer_repro/
+## Matched evaluation
 
-6) Independent verification and provenance
-- Final verification: artifacts/behaviortune-v11-r1-qlora-core-20260904/FINAL_VERIFICATION.json
-- Release provenance and hashes: release/PROVENANCE_AND_HASHES.json
+- [Runtime manifest](../artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/runtime_manifest.json)
+- [Raw outputs](../artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/raw_outputs.jsonl)
+- [Per-example deterministic scores](../artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/scores.jsonl)
+- [Aggregate metrics](../artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/metrics.json)
+- [Acceptance decision](../artifacts/behaviortune-v11-r1-qlora-core-20260904/evaluation_evidence/gate_decision.json)
+- [Human-readable results and limitations](RESULTS.md)
 
-Notes
-- The v1.0.0 tag and the release artifacts are immutable evidence. Do not treat the Evidence Map as authoritative for runtime behavior; it is a navigational guide to the public artifacts included in the repository and referenced by the tagged release.
+## Engineering surfaces
+
+- [Runtime boundary](../src/behaviortune/runtime.py) and [inference helpers](../src/behaviortune/inference.py)
+- [CLI](../src/behaviortune/cli.py) and [stateless API](../src/behaviortune/api.py)
+- [Docker contract](../Dockerfile) and [API lockfile](../requirements-api.lock)
+- [Reviewer replay fixture](../examples/reviewer_repro/)
+- [Engineering quickstart](REPRODUCIBILITY.md)
+
+## Verification and provenance
+
+- [Final verification](../artifacts/behaviortune-v11-r1-qlora-core-20260904/FINAL_VERIFICATION.json)
+- [Release provenance and hashes](../release/PROVENANCE_AND_HASHES.json)
+- [Tagged v1.0.0 release](https://github.com/aamish-ahmad/behavior-tune/releases/tag/v1.0.0)
+
+The tagged release remains the immutable snapshot of the accepted result. This page is only a navigation layer; it does not replace the underlying artifacts or evidence boundary.
