@@ -28,20 +28,20 @@ macOS/Linux:
 
 ```bash
 python -m behaviortune.cli replay \
-  --scenario examples/reviewer_repro/scenario.json \
+  --scenario examples/replay_fixture/scenario.json \
   --condition BASE \
-  --raw-output examples/reviewer_repro/raw_output.txt \
-  --output-dir artifacts/reviewer-repro-local
+  --raw-output examples/replay_fixture/raw_output.txt \
+  --output-dir artifacts/replay-local
 ```
 
 Windows PowerShell:
 
 ```powershell
 python -m behaviortune.cli replay `
-  --scenario examples/reviewer_repro/scenario.json `
+  --scenario examples/replay_fixture/scenario.json `
   --condition BASE `
-  --raw-output examples/reviewer_repro/raw_output.txt `
-  --output-dir artifacts/reviewer-repro-local
+  --raw-output examples/replay_fixture/raw_output.txt `
+  --output-dir artifacts/replay-local
 ```
 
 A replay writes `scenario.json`, `rendered.json`, `raw_output.txt`, `scored.json`, `aggregate.json`, `manifest.json`, and `SHA256SUMS` without overwriting an existing trace. Use a new output directory for each run.
