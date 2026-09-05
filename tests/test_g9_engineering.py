@@ -19,8 +19,8 @@ from behaviortune.engineering import aggregate_scores, render_record, replay_to_
 class G9EngineeringTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.scenario_path = ROOT / "examples/reviewer_repro/scenario.json"
-        cls.raw_path = ROOT / "examples/reviewer_repro/raw_output.txt"
+        cls.scenario_path = ROOT / "examples/replay_fixture/scenario.json"
+        cls.raw_path = ROOT / "examples/replay_fixture/raw_output.txt"
         cls.scenario = json.loads(cls.scenario_path.read_text(encoding="utf-8"))
         cls.raw = cls.raw_path.read_text(encoding="utf-8").strip()
 
