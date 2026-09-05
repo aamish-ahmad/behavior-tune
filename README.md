@@ -54,10 +54,10 @@ Run one model-free replay:
 
 ```bash
 python -m behaviortune.cli replay \
-  --scenario examples/reviewer_repro/scenario.json \
+  --scenario examples/replay_fixture/scenario.json \
   --condition BASE \
-  --raw-output examples/reviewer_repro/raw_output.txt \
-  --output-dir artifacts/reviewer-repro-local
+  --raw-output examples/replay_fixture/raw_output.txt \
+  --output-dir artifacts/replay-local
 ```
 
 Or start the API:
@@ -74,7 +74,7 @@ See [Engineering quickstart](docs/REPRODUCIBILITY.md) for the complete walkthrou
 
 - [`src/behaviortune/`](src/behaviortune) — training, runtime, evaluation, scoring, CLI, and API implementation
 - [`configs/`](configs) — training and evaluation configuration
-- [`examples/reviewer_repro/`](examples/reviewer_repro) — model-free replay fixture
+- [`examples/replay_fixture/`](examples/replay_fixture) — model-free replay fixture
 - [`tests/`](tests) — runtime, CLI, API, and deterministic-scoring tests
 - [`docs/`](docs) — results, engineering quickstart, and evidence navigation
 - [`Dockerfile`](Dockerfile), [`pyproject.toml`](pyproject.toml), and lockfiles — container and packaging contracts
@@ -86,9 +86,9 @@ These paths preserve the inspectable record behind the public result; they are n
 - [`artifacts/`](artifacts) — machine-readable training, evaluation, and verification evidence
 - [`results/`](results) — result tables and figures
 - [`release/`](release) — published cards, provenance ledger, and release hashes
-- [`v1_1_r1/`](v1_1_r1) — frozen benchmark splits, manifests, and checksums
+- [`v1_1_r1/`](v1_1_r1) — current frozen benchmark package, manifests, and checksums
 - [`manifests/`](manifests) — dataset and run manifests
-- [`v1_1_benchmark_repair/`](v1_1_benchmark_repair) — historical benchmark-repair provenance
+- [`evidence/history/`](evidence/history) — historical benchmark-development provenance retained for inspection
 
 For direct claim-to-evidence links, use the [Evidence map](docs/EVIDENCE_MAP.md).
 
