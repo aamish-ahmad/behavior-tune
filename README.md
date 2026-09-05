@@ -1,6 +1,6 @@
 # BehaviorTune
 
-**Reproducible behavioral post-training and evaluation for Qwen3-4B.**
+**Open-model QLoRA post-training and evaluation for Qwen3-4B, with a public adapter, dataset, matched evaluation, CLI/API, Docker, tests, and inspectable evidence.**
 
 [![CI](https://github.com/aamish-ahmad/behavior-tune/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/aamish-ahmad/behavior-tune/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/aamish-ahmad/behavior-tune?label=release)](https://github.com/aamish-ahmad/behavior-tune/releases/tag/v1.0.0)
@@ -8,30 +8,36 @@
 [![Dataset](https://img.shields.io/badge/Hugging%20Face-dataset-FFD21E)](https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1)
 [![Adapter](https://img.shields.io/badge/Hugging%20Face-QLoRA%20adapter-FFD21E)](https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter)
 
-BehaviorTune turns a behavioral specification into a controlled synthetic
-dataset, trains a real PEFT/QLoRA adapter for
-[`Qwen/Qwen3-4B-Instruct-2507`](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507),
-and compares the same target behavior across BASE, SYSTEM, CONTEXT, and QLoRA
-conditions.
+BehaviorTune takes a behavioral specification through the full post-training path:
+controlled synthetic data → completion-only PEFT/QLoRA training on
+[`Qwen/Qwen3-4B-Instruct-2507`](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507)
+→ matched BASE/SYSTEM/CONTEXT/QLoRA evaluation → deterministic scoring and
+reproducible public evidence.
 
-The public package and portfolio release is **v1.0.0**; **V1.1-R1** identifies
-the frozen scientific run packaged in that release.
+The repository also exposes the engineering path through a provider-independent
+runtime boundary, CLI, stateless FastAPI service, Docker contract, frozen configs,
+and model-free reviewer tests.
 
-> **Headline result:** QLoRA increased activation from **0.65625 to 1.00000**
-> on the frozen `eval_core` set — a **+0.34375 (+34.375 percentage-point)**
-> matched shift, with a paired-bootstrap 95% CI of **[0.1875, 0.5]**.
+**What this project demonstrates**
 
-![BehaviorTune activation comparison](results/v1_1_r1/activation_comparison.svg)
+- Real open-model fine-tuning with Transformers / TRL / PEFT / QLoRA.
+- A published QLoRA adapter and inspectable six-split synthetic dataset.
+- Matched behavioral evaluation with deterministic scoring and frozen evidence.
+- Reproducible CLI / FastAPI / Docker / configuration / tracking surfaces.
+
+The public portfolio package is **v1.0.0**; **V1.1-R1** identifies the frozen
+scientific run packaged in that release.
 
 ## 60-second project tour
 
 | Start here | What it shows |
 | --- | --- |
-| [Results and limitations](docs/RESULTS.md) | The measured effect, condition-level metrics, gates, and evidence boundary |
+| [Hugging Face adapter](https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter) | Published QLoRA adapter, pinned base revision, training configuration, and adapter hash |
 | [Hugging Face dataset](https://huggingface.co/datasets/aamish-ahmad/behaviortune-v1-1-r1) | 544 synthetic scenarios across six inspectable splits |
-| [Hugging Face adapter](https://huggingface.co/aamish-ahmad/behaviortune-v1-1-r1-adapter) | The published QLoRA adapter, base revision, training configuration, and adapter hash |
-| [Reproduce the engineering path](docs/REPRODUCIBILITY.md) | A model-free CLI/API replay that runs locally without a GPU or model download |
-| [Tagged release](https://github.com/aamish-ahmad/behavior-tune/releases/tag/v1.0.0) | The accepted result, immutable proof links, and provenance |
+| [Results and limitations](docs/RESULTS.md) | Matched evaluation, condition-level metrics, acceptance gates, and evidence boundary |
+| [Reproduce the engineering path](docs/REPRODUCIBILITY.md) | Model-free CLI/API replay that runs locally without a GPU or model download |
+| [CV claim → public proof](docs/CV_CLAIM_MAP.md) | Direct mapping from post-training / evaluation / engineering claims to inspectable artifacts |
+| [Tagged release](https://github.com/aamish-ahmad/behavior-tune/releases/tag/v1.0.0) | Accepted result, immutable proof links, and provenance |
 
 ## What was trained and evaluated
 
@@ -52,6 +58,14 @@ the frozen scientific run packaged in that release.
 The claim is intentionally narrow: a pre-specified policy was installed through
 a real adapter and produced a measurable shift on the frozen evaluation while
 the tested specificity controls remained clean.
+
+## Measured result
+
+QLoRA increased activation from **0.65625 to 1.00000** on the frozen
+`eval_core` set — a **+0.34375 (+34.375 percentage-point)** matched shift, with
+a paired-bootstrap 95% CI of **[0.1875, 0.5]**.
+
+![BehaviorTune activation comparison](results/v1_1_r1/activation_comparison.svg)
 
 ## Why the result is credible
 
