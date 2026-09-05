@@ -18,7 +18,7 @@ class G9ApiTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.client = TestClient(app)
-        cls.scenario = json.loads((ROOT / "examples/reviewer_repro/scenario.json").read_text(encoding="utf-8"))
+        cls.scenario = json.loads((ROOT / "examples/replay_fixture/scenario.json").read_text(encoding="utf-8"))
 
     def test_health_is_explicitly_model_free(self) -> None:
         response = self.client.get("/healthz")
