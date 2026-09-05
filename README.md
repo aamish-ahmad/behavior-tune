@@ -70,15 +70,27 @@ See [Engineering quickstart](docs/REPRODUCIBILITY.md) for the complete walkthrou
 
 ## Repository map
 
-| Path | Purpose |
-| --- | --- |
-| [`src/behaviortune/`](src/behaviortune) | Training, runtime, evaluation, scoring, CLI, and API implementation |
-| [`configs/`](configs) | Training and evaluation configuration |
-| [`docs/`](docs) | Results, engineering quickstart, and evidence navigation |
-| [`examples/`](examples) | Model-free replay fixture |
-| [`tests/`](tests) | Runtime, CLI, API, and deterministic-scoring tests |
+### Engineering surfaces
 
-Detailed run artifacts, manifests, historical benchmark material, and release provenance remain public for inspection and are indexed from the [Evidence map](docs/EVIDENCE_MAP.md).
+- [`src/behaviortune/`](src/behaviortune) — training, runtime, evaluation, scoring, CLI, and API implementation
+- [`configs/`](configs) — training and evaluation configuration
+- [`examples/reviewer_repro/`](examples/reviewer_repro) — model-free replay fixture
+- [`tests/`](tests) — runtime, CLI, API, and deterministic-scoring tests
+- [`docs/`](docs) — results, engineering quickstart, and evidence navigation
+- [`Dockerfile`](Dockerfile), [`pyproject.toml`](pyproject.toml), and lockfiles — container and packaging contracts
+
+### Evidence & provenance
+
+These paths preserve the inspectable record behind the public result; they are not required for the quickstart.
+
+- [`artifacts/`](artifacts) — machine-readable training, evaluation, and verification evidence
+- [`results/`](results) — result tables and figures
+- [`release/`](release) — published cards, provenance ledger, and release hashes
+- [`v1_1_r1/`](v1_1_r1) — frozen benchmark splits, manifests, and checksums
+- [`manifests/`](manifests) — dataset and run manifests
+- [`v1_1_benchmark_repair/`](v1_1_benchmark_repair) — historical benchmark-repair provenance
+
+For direct claim-to-evidence links, use the [Evidence map](docs/EVIDENCE_MAP.md).
 
 ## Scope
 
